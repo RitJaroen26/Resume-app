@@ -1,24 +1,22 @@
 "use client";
 
-import { useState, ReactNode, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-    FiHome,
-    FiUsers,
-    FiCpu,
-    FiBriefcase,
-    FiMessageCircle,
-    FiSettings,
-    FiSun,
-    FiMoon,
-    FiChevronRight,
-    FiChevronDown,
-    FiDownload,
-} from "react-icons/fi";
-import { FaBars } from "react-icons/fa";
-import HomeSection from "./HomeSection";
-import About from "./AboutSection";
+    Home,
+    Users,
+    Cpu,
+    Briefcase,
+    MessageCircle,
+    Sun,
+    Moon,
+    ChevronRight,
+    Download,
+    FileText,
+    User,
+    BookOpen,
+    Menu
+} from "lucide-react";
 
 interface SidebarProps {
     children: React.ReactNode;
@@ -27,217 +25,353 @@ interface SidebarProps {
 export default function Sidebar({ children }: SidebarProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [isClient, setIsClient] = useState(false);
-    const [isOpenDropdown, setIsOpenDropdown] = useState<string | null>(null);
-
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [isDarkMode, setIsDarkMode] = useState(false);
     const dropdownRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         setIsClient(true);
     }, []);
 
+    const toggleDarkMode = () => {
+        setIsDarkMode(prev => !prev);
+    };
+
     const toggleDropdown = (id: string) => {
-        setIsOpenDropdown(isOpenDropdown === id ? null : id);
+        setActiveDropdown(activeDropdown === id ? null : id);
+    };
+
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     const menuItems = [
-        { icon: <FiHome />, label: "Home", id: "home-section" },
-        { icon: <FiUsers />, label: "About Me", id: "about-section" },
-        { icon: <FiCpu />, label: "Skills", id: "skills-section" },
-        { icon: <FiBriefcase />, label: "Portfolio", id: "portfolio-section" },
-        { icon: <FiMessageCircle />, label: "Contract", id: "footer" },
+        { icon: <Home size={20} />, label: "Home", id: "home-section" },
+        { icon: <Users size={20} />, label: "About Me", id: "about-section" },
+        { icon: <Cpu size={20} />, label: "Skills", id: "skills-section" },
+        { icon: <Briefcase size={20} />, label: "Portfolio", id: "portfolio-section" },
+        { icon: <MessageCircle size={20} />, label: "Contact", id: "footer" },
     ];
 
-    const infoItem = [
+    const infoItems = [
         {
-            icon: <FiSettings />,
+            icon: <FileText size={20} />,
             label: "Resume",
-            id: "settings-section",
+            id: "resume-section",
+            hasDropdown: true,
             subMenu: [
-                { label: "Download Resume", id: "profile-settings", file: "/files/resume.pdf", fileName: "Pawarit_Resume.pdf" },
-                { label: "Download CV", id: "account-settings", file: "/files/Quiz1.pdf", fileName: "Pawarit_CV.pdf" },
-            ]
+                { label: "Download Resume", fileName: "Pawarit_Resume.pdf" },
+                { label: "Download CV", fileName: "Pawarit_CV.pdf" },
+            ],
         },
         {
-            icon: <FiUsers />,
+            icon: <User size={20} />,
             label: "Profile",
             id: "profile-section",
+            hasDropdown: true,
             content: (
-                <div className="p-6">
-                    <div className="flex items-center space-x-3">
-                        <img src="/images/pawarit.jpg" className="w-12 h-12 bg-gray-200 rounded-full" />
+                <div className="p-4 min-w-[280px]">
+                    <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                            P
+                        </div>
                         <div>
-                            <p className="font-bold text-gray-800">Pawarit Jaroenphatthanasiri</p>
+                            <p className="font-semibold text-gray-800">Pawarit Jaroenphatthanasiri</p>
                             <p className="text-sm text-gray-500">pawarit-j@rmutp.ac.th</p>
                         </div>
                     </div>
-                    <div className="mt-4 space-y-2">
-                        <p className="text-gray-600 text-sm">Phone: 099-999-9999</p>
-                        <p className="text-gray-600 text-sm">Role: Developer</p>
+                    <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                            <span className="text-gray-600">Phone:</span>
+                            <span className="text-gray-800">099-999-9999</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className="text-gray-600">Role:</span>
+                            <span className="text-gray-800">Developer</span>
+                        </div>
                     </div>
                 </div>
             ),
         },
         {
-            icon: <FiUsers />,
+            icon: <BookOpen size={20} />,
             label: "Education",
             id: "education-section",
+            hasDropdown: true,
             content: (
-                <div className="p-6">
-                    <h1 className="text-[30px] text-center">Education</h1>
-                    <div>
-
-                    </div>
+                <div className="p-4 min-w-[200px]">
+                    <h3 className="text-lg font-semibold text-center text-gray-800">Education</h3>
+                    <p className="text-sm text-gray-600 text-center mt-2">
+                        Click to view education details
+                    </p>
                 </div>
             ),
         },
-    ]
-
-    const sidebarWidth = isOpen ? 260 : 80;
+    ];
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-                setIsOpenDropdown(null);
+                setActiveDropdown(null);
             }
-        }
-
+        };
         document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        }
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+    const sidebarWidth = isOpen ? 280 : 80;
+
     return (
-        <div className="h-screen bg-gray-50 flex">
+        <div className={`h-screen flex ${isDarkMode ? 'dark' : ''}`}>
+            {/* Sidebar */}
             <motion.div
                 animate={{ width: sidebarWidth }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="bg-white shadow-xl h-screen flex flex-col justify-between py-4 px-2 fixed left-0 top-0"
+                className="h-screen fixed left-0 top-0 z-50 bg-white shadow-xl overflow-visible"
             >
-                <div>
-                    <div className="flex items-center gap-6 px-3 mb-8">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="bg-gray-100 cursor-pointer text-black p-2 rounded-full hover:bg-gray-200 transition"
-                        >
-                            <FaBars />
-                        </button>
-
-                        {isOpen && (
-                            <motion.div
-                                animate={{ opacity: isOpen ? 1 : 0 }}
-                                className="flex items-center space-x-2"
-                            >
-                                <span className="font-bold text-lg">Pawarit</span>
-                            </motion.div>
-                        )}
-                    </div>
-
-
-                    <div className={`flex flex-col space-y-2 ${isOpen ? "mt-0" : "mt-17"}`}>
-                        <p className={`text-[14px] font-semibold px-4 py-1 text-gray-600 ${!isOpen ? "hidden" : "block"}`}>Menu</p>
-                        {menuItems.map((item, index) => (
+                <div className="flex flex-col h-full">
+                    {/* Header */}
+                    <div className="p-4 border-b border-gray-200">
+                        <div className="flex items-center gap-3">
                             <button
-                                key={index}
-                                className={`flex items-center text-black space-x-3 px-3 py-2 rounded-xl hover:bg-gray-100 transition relative cursor-pointer ${!isOpen ? "justify-center" : ""}`}
+                                onClick={() => setIsOpen(!isOpen)}
+                                className="p-2 rounded-lg bg-gray-100  hover:bg-gray-200 transition-colors"
                             >
-                                <span className="text-xl">{item.icon}</span>
-                                {isOpen && <span className="text-gray-700">{item.label}</span>}
+                                <Menu size={18} className="text-gray-700" />
                             </button>
-                        ))}
-                    </div>
 
-                    <div className={`flex flex-col space-y-2 ${isOpen ? "mt-6" : "mt-2"}`}>
-                        <p className={`text-[14px] font-semibold px-4 py-1 text-gray-600 ${!isOpen ? "hidden" : "block"}`}>Information</p>
-                        {infoItem.map((item, index) => (
-                            <div
-                                key={index}
-                                className="relative"
-                                onClick={() => setIsOpenDropdown(
-                                    isOpenDropdown === item.id ? null : item.id
-                                )}
-                            >
-                                <button
-                                    className={`grid ${isOpen ? "grid-cols-2" : "flex"} gap-40 items-center text-black px-3 py-2 rounded-xl hover:bg-gray-100 w-full transition relative cursor-pointer ${!isOpen ? "justify-center" : ""}`}
-                                >
-                                    <div className="flex items-center space-x-3">
-                                        <span className="text-xl">{item.icon}</span>
-                                        {isOpen && <span className="text-gray-700">{item.label}</span>}
-                                    </div>
-                                    {isOpen && (
-                                        <span className="text-gray-500">
-                                            {isOpenDropdown === item.id ? (
-                                                <FiChevronDown className="transition-transform duration-300" />
-                                            ) : (
-                                                <FiChevronRight className="transition-transform duration-300" />
-                                            )}
-                                        </span>
-                                    )}
-                                </button>
-
-                                {isClient && isOpenDropdown === item.id && (
+                            <AnimatePresence>
+                                {isOpen && (
                                     <motion.div
                                         initial={{ opacity: 0, x: -10 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         exit={{ opacity: 0, x: -10 }}
-                                        // className="absolute top-0 left-full ml-4 w-64 bg-white shadow-lg rounded-xl p-4 z-50"
-                                        className={`
-                                            absolute left-full ml-4 bg-white shadow-lg rounded-xl p-4 z-50
-                                            ${item.content 
-                                                ? isOpen 
-                                                    ? "w-100 h-150 -top-[360px]" 
-                                                    : "w-100 h-150 -top-[280px]"
-                                                : "w-64 top-0"
-                                            } 
-                                        `}
+                                        transition={{ delay: -0.5 }}
                                     >
-                                        <div className="space-y-2 flex flex-col">
-                                            {item.subMenu ? item.subMenu?.map((sub, subIndex) => (
-                                                <a
-                                                    key={subIndex}
-                                                    href={sub.file}
-                                                    download={sub.fileName}
-                                                    className="flex items-center justify-between text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-2 py-1 rounded cursor-pointer"
-                                                >
-                                                    <div>
-                                                        {sub.label}
-                                                    </div>
-                                                    <FiDownload className="transition-transform duration-300" />
-                                                </a>
-                                            )) : item.content}
-                                        </div>
+                                        <span className="font-bold text-xl text-gray-800">
+                                            Pawarit
+                                        </span>
                                     </motion.div>
                                 )}
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Theme Toggle */}
+                        {isOpen && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2 }}
+                                className="mt-4"
+                            >
+                                <button
+                                    onClick={toggleDarkMode}
+                                    className={`relative w-14 h-7 flex items-center rounded-full cursor-pointer transition-colors duration-300 ${isDarkMode ? "bg-blue-600" : "bg-gray-300"
+                                        }`}
+                                >
+                                    <motion.div
+                                        animate={{ x: isDarkMode ? 28 : 2 }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                        className="w-6 h-6 bg-white rounded-full shadow-md flex items-center justify-center"
+                                    >
+                                        {isDarkMode ? (
+                                            <Moon size={14} className="text-blue-600" />
+                                        ) : (
+                                            <Sun size={14} className="text-yellow-500" />
+                                        )}
+                                    </motion.div>
+                                </button>
+                            </motion.div>
+                        )}
+                    </div>
+
+                    {/* Navigation */}
+                    <div className="flex-1">
+                        {/* Main Menu */}
+                        <div className="p-4">
+                            {isOpen && (
+                                <motion.p
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.15 }}
+                                    className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3"
+                                >
+                                    Navigation
+                                </motion.p>
+                            )}
+
+                            <div className="space-y-1">
+                                {menuItems.map((item, index) => (
+                                    <motion.button
+                                        key={item.id}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.2 + index * 0.05 }}
+                                        onClick={() => scrollToSection(item.id)}
+                                        className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors ${!isOpen ? "justify-center" : ""
+                                            }`}
+                                    >
+                                        {item.icon}
+                                        {isOpen && (
+                                            <motion.span
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 0.25 + index * 0.05 }}
+                                                className="font-medium"
+                                            >
+                                                {item.label}
+                                            </motion.span>
+                                        )}
+                                    </motion.button>
+                                ))}
                             </div>
-                        ))}
+                        </div>
+
+                        <div className="p-4">
+                            {isOpen && (
+                                <motion.p
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.15 }}
+                                    className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3"
+                                >
+                                    Information
+                                </motion.p>
+                            )}
+
+                            <div className="space-y-1" ref={dropdownRef}>
+                                {infoItems.map((item, index) => (
+                                    <div key={item.id} className="relative">
+                                        <motion.button
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.2 + index * 0.05 }}
+                                            onClick={() => item.hasDropdown && toggleDropdown(item.id)}
+                                            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-gray-700  hover:bg-gray-100 transition-colors ${!isOpen ? "justify-center" : ""
+                                                }`}
+                                        >
+                                            <div className="flex items-center space-x-3">
+                                                {item.icon}
+                                                {isOpen && (
+                                                    <motion.span
+                                                        initial={{ opacity: 0 }}
+                                                        animate={{ opacity: 1 }}
+                                                        transition={{ delay: 0.25 + index * 0.05 }}
+                                                        className="font-medium"
+                                                    >
+                                                        {item.label}
+                                                    </motion.span>
+                                                )}
+                                            </div>
+
+                                            {isOpen && item.hasDropdown && (
+                                                <motion.div
+                                                    animate={{
+                                                        rotate: activeDropdown === item.id ? 90 : 0
+                                                    }}
+                                                    transition={{
+                                                        type: "spring",
+                                                        stiffness: 500,
+                                                        damping: 25
+                                                    }}
+                                                >
+                                                    <ChevronRight size={16} className="text-gray-400" />
+                                                </motion.div>
+                                            )}
+                                        </motion.button>
+
+                                        <AnimatePresence>
+                                            {isClient && activeDropdown === item.id && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, x: 10, scale: 0.95 }}
+                                                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                                                    exit={{ opacity: 0, x: 10, scale: 0.95 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    style={{
+                                                        position: 'fixed',
+                                                        top: dropdownRef.current?.getBoundingClientRect().top ?? 0,
+                                                        left: sidebarWidth + 16,
+                                                        zIndex: 9999,
+                                                        minWidth: 250
+                                                    }}
+                                                    className="bg-white shadow-lg rounded-xl p-4"
+                                                >
+                                                    {item.subMenu ? (
+                                                        <div>
+                                                            {item.subMenu.map((sub, subIndex) => (
+                                                                <button
+                                                                    key={subIndex}
+                                                                    onClick={() => console.log(`Downloading ${sub.fileName}`)}
+                                                                    className="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                                                                >
+                                                                    <span>{sub.label}</span>
+                                                                    <Download size={14} />
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    ) : (
+                                                        item.content
+                                                    )}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
-                </div>
-
-                <div className="px-3">
-                    <div className="flex items-center justify-between bg-gray-100 rounded-lg p-2 mb-4">
-                        <button className="flex items-center space-x-2 text-blue-600 font-medium">
-                            <FiSun /> {isOpen && <span>Light</span>}
-                        </button>
-                        <button className="flex items-center space-x-2 text-gray-400">
-                            <FiMoon /> {isOpen && <span>Dark</span>}
-                        </button>
-                    </div>
-
-                    <div className="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer">
-
+                    {/* Footer */}
+                    <div className="p-4 border-t border-gray-200">
+                        {isOpen ? (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="text-center"
+                            >
+                                <p className="text-xs text-gray-500 ">
+                                    © 2025 Pawarit J.
+                                </p>
+                                <div className="flex justify-center space-x-4 mt-1">
+                                    <button className="text-xs text-gray-400 hover:text-gray-600">
+                                        Privacy
+                                    </button>
+                                    <button className="text-xs text-gray-400 hover:text-gray-600">
+                                        Terms
+                                    </button>
+                                </div>
+                            </motion.div>
+                        ) : (
+                            <div className="flex justify-center">
+                                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                    P
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </motion.div>
 
-            <div className="flex-1 flex flex-col" style={{ marginLeft: sidebarWidth }}>
-                <div className="h-20 bg-white shadow flex items-center justify-between px-6 fixed top-0 right-0 transition-all duration-300"
-                    style={{ left: sidebarWidth }}>
-
+            {/* Main Content Area */}
+            <div
+                className="flex-1 transition-all duration-300 bg-gray-50"
+                style={{ marginLeft: sidebarWidth }}
+            >
+                {/* Top Bar */}
+                <div
+                    className="h-16 bg-white shadow-sm border-b border-gray-200 flex items-center px-6 fixed top-0 right-0 transition-all duration-300 z-40"
+                    style={{ left: sidebarWidth }}
+                >
+                    
                 </div>
 
-                <div className="flex-1 overflow-y-auto">
-                    {children}
+                <div className="pt-16 h-full overflow-y-auto">
+                    <div className="p-2">
+                        {children}
+                    </div>
                 </div>
             </div>
         </div>
