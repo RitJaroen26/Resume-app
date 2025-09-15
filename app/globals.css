@@ -20,9 +20,10 @@
   }
 }
 
-/* * {
-  outline: 1px solid red;
-} */
+* {
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
 
 /* body {
   background: var(--background);
