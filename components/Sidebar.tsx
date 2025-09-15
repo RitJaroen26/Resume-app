@@ -28,6 +28,7 @@ export default function Sidebar({ children }: SidebarProps) {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const dropdownRef = useRef<HTMLDivElement | null>(null);
+    const [isEnglish, setIsEnglish] = useState(true);
 
     useEffect(() => {
         setIsClient(true);
@@ -211,7 +212,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: 0.2 + index * 0.05 }}
                                         onClick={() => scrollToSection(item.id)}
-                                        className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors ${!isOpen ? "justify-center" : ""
+                                        className={`w-full flex cursor-pointer items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors ${!isOpen ? "justify-center" : ""
                                             }`}
                                     >
                                         {item.icon}
@@ -250,7 +251,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.2 + index * 0.05 }}
                                             onClick={() => item.hasDropdown && toggleDropdown(item.id)}
-                                            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-gray-700  hover:bg-gray-100 transition-colors ${!isOpen ? "justify-center" : ""
+                                            className={`w-full flex cursor-pointer items-center justify-between px-3 py-2.5 rounded-lg text-gray-700  hover:bg-gray-100 transition-colors ${!isOpen ? "justify-center" : ""
                                                 }`}
                                         >
                                             <div className="flex items-center space-x-3">
@@ -305,7 +306,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                                                 <button
                                                                     key={subIndex}
                                                                     onClick={() => console.log(`Downloading ${sub.fileName}`)}
-                                                                    className="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                                                                    className="w-full cursor-pointer flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
                                                                 >
                                                                     <span>{sub.label}</span>
                                                                     <Download size={14} />
@@ -333,7 +334,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                 className="text-center"
                             >
                                 <p className="text-xs text-gray-500 ">
-                                    © 2025 Pawarit J.
+                                    © 2025 Pawarit J. All rights reserved.
                                 </p>
                                 <div className="flex justify-center space-x-4 mt-1">
                                     <button className="text-xs text-gray-400 hover:text-gray-600">
@@ -365,7 +366,23 @@ export default function Sidebar({ children }: SidebarProps) {
                     className="h-16 bg-white shadow-sm border-b border-gray-200 flex items-center px-6 fixed top-0 right-0 transition-all duration-300 z-40"
                     style={{ left: sidebarWidth }}
                 >
-                    
+                    <div></div>
+
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={() => setIsEnglish(prev => !prev)}
+                            className={`relative w-16 h-7 flex items-center rounded-full cursor-pointer transition-colors duration-300 ${isEnglish ? "bg-blue-600" : "bg-gray-300"}`}
+                        >
+                            <motion.div
+                                animate={{ x: isEnglish ? 32 : 2 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                className="w-7 h-7 bg-white rounded-full shadow-md flex items-center justify-center text-xs font-bold text-gray-700"
+                            >
+                                {isEnglish ? "EN" : "TH"}
+                            </motion.div>
+                        </button>
+                        
+                    </div>
                 </div>
 
                 <div className="pt-16 h-full overflow-y-auto">
