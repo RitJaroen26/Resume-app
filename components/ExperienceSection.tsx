@@ -1,7 +1,13 @@
-export default function Skills() {
+"use client";
+
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useSidebar } from '@/context/SidebarContext';
+
+export default function ExperienceSection() {
     return (
         <section 
-            id="skills-section"
+            id="experience-section"
             className="bg-white min-h-screen flex flex-col justify-center items-start px-6 pt-20"
         >
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
@@ -13,3 +19,4 @@ export default function Skills() {
         </section>
     )
 }
+

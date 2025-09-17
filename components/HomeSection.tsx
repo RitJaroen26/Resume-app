@@ -37,7 +37,6 @@ export default function HomeSection() {
         { number: "2+", label: "Years Experience", delay: 0.2 },
         { number: "15+", label: "Projects Completed", delay: 0.4 },
         { number: "5+", label: "Technologies", delay: 0.6 },
-        { number: "100%", label: "Client Satisfaction", delay: 0.8 }
     ];
 
     useEffect(() => {
@@ -185,30 +184,6 @@ export default function HomeSection() {
                                 </div>
                             </div>
                         </div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1.2 }}
-                            className="grid grid-cols-2 gap-4"
-                        >
-                            {skills.map((skill, index) => (
-                                <motion.div
-                                    key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 1.4 + index * 0.1 }}
-                                    className={`group ${isDarkMode ? 'bg-[#282828] hover:bg-gray-800' : 'bg-white/80 hover:bg-white'} backdrop-blur-sm rounded-xl p-4 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer`}
-                                >
-                                    <div className={`w-12 h-12 bg-gradient-to-r ${skill.color} rounded-lg flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform`}>
-                                        {skill.icon}
-                                    </div>
-                                    <h3 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-800'} text-sm`}>
-                                        {skill.name}
-                                    </h3>
-                                </motion.div>
-                            ))}
-                        </motion.div>
                     </motion.div>
                 </div>
 
@@ -216,7 +191,7 @@ export default function HomeSection() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.6 }}
-                    className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8"
+                    className="mt-20 grid grid-cols-2 lg:grid-cols-3 gap-8"
                 >
                     {stats.map((stat, index) => (
                         <motion.div

@@ -71,8 +71,8 @@ export default function Sidebar({ children }: SidebarProps) {
     const menuItems = [
         { icon: <Home size={20} />, label: "Home", id: "home-section" },
         { icon: <Users size={20} />, label: "About Me", id: "about-section" },
-        { icon: <Cpu size={20} />, label: "Portfolio", id: "skills-section" },
-        { icon: <Briefcase size={20} />, label: "Experience", id: "portfolio-section" },
+        { icon: <Cpu size={20} />, label: "Portfolio", id: "portfolio-section" },
+        { icon: <Briefcase size={20} />, label: "Experience", id: "experience-section" },
         { icon: <MessageCircle size={20} />, label: "Contract", id: "footer" },
     ];
 
