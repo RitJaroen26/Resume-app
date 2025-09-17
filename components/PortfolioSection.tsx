@@ -117,8 +117,8 @@ export default function PortfolioSection() {
                 "Multiple city weather tracking",
                 "Weather alerts and notifications"
             ],
-            demoUrl: "#",
-            githubUrl: "#",
+            demoUrl: "https://basic-kanban-board.vercel.app/",
+            githubUrl: "https://github.com/RitJaroen26/basic-kanban-board",
             icon: <Globe size={24} />
         },
     ];
@@ -162,12 +162,12 @@ export default function PortfolioSection() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    className="md:text-center mb-16"
                 >
-                    <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                    <h2 className={`ml-30 md:ml-0 text-4xl lg:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                         My <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
                     </h2>
-                    <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+                    <p className={`hidden md:block w-95 md:w-full text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
                         Explore my recent projects and technical achievements. Each project represents a unique challenge and learning experience.
                     </p>
                 </motion.div>
@@ -177,7 +177,7 @@ export default function PortfolioSection() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="relative"
+                    className="relative w-50"
                 >
                     <button
                         onClick={prevSlide}

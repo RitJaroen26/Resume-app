@@ -21,6 +21,7 @@ import {
     SiGithub,
     SiSourcetree,
     SiDocker,
+    SiTailwindcss
 } from 'react-icons/si';
 
 import { 
@@ -123,6 +124,7 @@ export default function AboutSection() {
                 <SiJavascript size={26} key="js" title="JavaScript" color= "#F7DF1E" />,
                 <SiTypescript size={26} key="ts" title="TypeScript"color= "#3178C6"  />,
                 <SiNextdotjs size={26} key="next" title="NextJs" color= "#000000" />,
+                <SiTailwindcss size={26} key="next" title="TailwindCSS" color= "#38BDF8" />,
             ]
         },
         {
@@ -175,7 +177,7 @@ export default function AboutSection() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    className="ml-30 md:ml-0 md:text-center mb-16"
                 >
                     <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                         About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Me</span>
@@ -189,7 +191,7 @@ export default function AboutSection() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="space-y-8"
                     >
-                        <div className={`${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-sm ${isDarkMode ? 'border-gray-700' : 'border-gray-100'}`}>
+                        <div className={`w-90 md:w-full ml-5 md:ml-0 ${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-sm ${isDarkMode ? 'border-gray-700' : 'border-gray-100'}`}>
                             <div className="text-center mb-6">
                                 <div className="w-32 h-32 mx-auto mb-4 rounded-full flex items-center justify-center shadow-lg">
                                     <img src="/images/image2.jpg" alt="" className='rounded-full' />
@@ -243,7 +245,7 @@ export default function AboutSection() {
                             ))}
                         </div>
 
-                        <div className={`${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-xl ${isDarkMode ? 'border-gray-700' : 'border-gray-100'} min-h-[500px]`}>
+                        <div className={`w-100 md:w-full ${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-xl ${isDarkMode ? 'border-gray-700' : 'border-gray-100'} min-h-[500px]`}>
                             <AnimatePresence mode="wait">
                                 {activeTab === 'story' && (
                                     <motion.div
