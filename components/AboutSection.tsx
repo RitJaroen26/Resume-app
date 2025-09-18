@@ -227,7 +227,7 @@ export default function AboutSection() {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="lg:col-span-2"
                     >
-                        <div className="flex flex-wrap gap-2 mb-8">
+                        <div className="flex flex-row gap-2 mb-8">
                             {tabs.map((tab) => (
                                 <button
                                     key={tab.id}
