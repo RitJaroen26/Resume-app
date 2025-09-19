@@ -40,7 +40,7 @@ type Project = {
 };
 
 export default function PortfolioSection() {
-    const { isOpen, isDarkMode } = useSidebar();
+    const { isOpen, isDarkMode, isThai } = useSidebar();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +52,7 @@ export default function PortfolioSection() {
 
     useEffect(() => {
         const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
+            setIsMobile(window.innerWidth < 1024);
         };
 
         checkMobile();
@@ -93,7 +93,7 @@ export default function PortfolioSection() {
             id: 1,
             title: "Food Ordering System",
             category: "Web & Mobile",
-            categoryName: "Web Application", 
+            categoryName: "Web Application",
             image: "/images/food-ordering.png",
             technologies: ["React", "Node.js", "MongoDB", "Stripe"],
             date: "2024",
@@ -204,15 +204,8 @@ export default function PortfolioSection() {
         if (filteredProjects.length === 0) return [];
 
         if (isMobile) {
-            // return [{ ...projects[currentIndex], position: 0 }];
             return [{ ...filteredProjects[currentIndex % filteredProjects.length], position: 0 }];
         } else {
-            // const result = [];
-            // for (let i = 0; i < 3; i++) {
-            //     const index = (currentIndex + i) % projects.length;
-            //     result.push({ ...projects[index], position: i });
-            // }
-            // return result;
             const result = [];
             for (let i = 0; i < Math.min(3, filteredProjects.length); i++) {
                 const index = (currentIndex + i) % filteredProjects.length;
@@ -257,90 +250,92 @@ export default function PortfolioSection() {
                         Explore my recent projects and technical achievements. Each project represents a unique challenge and learning experience.
                     </p>
 
-                    <h1 className={`text-[16px] text-white mb-4`}>Category</h1>
+                    <div className='my-8'>
+                        <h1 className={`text-[16px] ${isDarkMode ? "text-white" : "text-gray-600"} mb-4`}>Category</h1>
 
-                    <div className="flex justify-center mb-8">
-                        <div className="relative" ref={comboboxRef}>
-                            <motion.button
-                                whileTap={{ scale: 0.98 }}
-                                onClick={() => setIsComboboxOpen(!isComboboxOpen)}
-                                className={`
+                        <div className="flex justify-center mb-6">
+                            <div className="relative" ref={comboboxRef}>
+                                <motion.button
+                                    whileTap={{ scale: 0.98 }}
+                                    onClick={() => setIsComboboxOpen(!isComboboxOpen)}
+                                    className={`
                                     flex items-center gap-3 px-6 py-3 rounded-xl font-medium text-sm
                                     ${isDarkMode
-                                        ? 'bg-gray-800/80 backdrop-blur-sm border border-gray-700 text-white hover:bg-gray-700/80'
-                                        : 'bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-900 hover:bg-gray-50/80'
-                                    }
+                                            ? 'bg-gray-800/80 backdrop-blur-sm border border-gray-700 text-white hover:bg-gray-700/80'
+                                            : 'bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-900 hover:bg-gray-50/80'
+                                        }
                                     shadow-lg hover:shadow-xl transition-all duration-300 min-w-[200px] justify-between
                                     ${isComboboxOpen ? 'ring-2 ring-blue-500/50' : ''}
                                 `}
-                            >
-                                <div className="flex items-center gap-2">
-                                    {selectedCategoryData.icon}
-                                    <span>{selectedCategoryData.label}</span>
-                                </div>
-                                <ChevronDown
-                                    size={16}
-                                    className={`transition-transform duration-200 ${isComboboxOpen ? 'rotate-180' : ''}`}
-                                />
-                            </motion.button>
+                                >
+                                    <div className="flex items-center gap-2">
+                                        {selectedCategoryData.icon}
+                                        <span>{selectedCategoryData.label}</span>
+                                    </div>
+                                    <ChevronDown
+                                        size={16}
+                                        className={`transition-transform duration-200 ${isComboboxOpen ? 'rotate-180' : ''}`}
+                                    />
+                                </motion.button>
 
-                            <AnimatePresence>
-                                {isComboboxOpen && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                                        transition={{ duration: 0.2, ease: "easeOut" }}
-                                        className={`
+                                <AnimatePresence>
+                                    {isComboboxOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                            transition={{ duration: 0.2, ease: "easeOut" }}
+                                            className={`
                                             absolute top-full mt-2 left-0 right-0 z-50
                                             ${isDarkMode
-                                                ? 'bg-gray-800/95 backdrop-blur-md border border-gray-700'
-                                                : 'bg-white/95 backdrop-blur-md border border-gray-200'
-                                            }
+                                                    ? 'bg-gray-800/95 backdrop-blur-md border border-gray-700'
+                                                    : 'bg-white/95 backdrop-blur-md border border-gray-200'
+                                                }
                                             rounded-xl shadow-2xl overflow-hidden
                                         `}
-                                    >
-                                        {categories.map((category, index) => (
-                                            <motion.button
-                                                key={category.value}
-                                                initial={{ opacity: 0, x: -10 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: index * 0.05 }}
-                                                onClick={() => handleCategorySelect(category.value)}
-                                                className={`
+                                        >
+                                            {categories.map((category, index) => (
+                                                <motion.button
+                                                    key={category.value}
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ delay: index * 0.05 }}
+                                                    onClick={() => handleCategorySelect(category.value)}
+                                                    className={`
                                                     w-full flex items-center gap-3 px-4 py-3 text-left text-sm
                                                     ${isDarkMode
-                                                        ? 'hover:bg-gray-700/50 text-gray-300'
-                                                        : 'hover:bg-gray-50/50 text-gray-700'
-                                                    }
+                                                            ? 'hover:bg-gray-700/50 text-gray-300'
+                                                            : 'hover:bg-gray-50/50 text-gray-700'
+                                                        }
                                                     transition-all duration-200 group relative
                                                     ${selectedCategory === category.value
-                                                        ? (isDarkMode ? 'bg-blue-600/20' : 'bg-blue-50')
-                                                        : ''
-                                                    }
+                                                            ? (isDarkMode ? 'bg-blue-600/20' : 'bg-blue-50')
+                                                            : ''
+                                                        }
                                                 `}
-                                            >
-                                                <div className="flex items-center gap-2 flex-1">
-                                                    <span className={`${selectedCategory === category.value ? 'text-blue-500' : ''}`}>
-                                                        {category.icon}
-                                                    </span>
-                                                    <span className={`${selectedCategory === category.value ? 'font-medium' : ''}`}>
-                                                        {category.label}
-                                                    </span>
-                                                </div>
-                                                {selectedCategory === category.value && (
-                                                    <Check size={16} className="text-blue-500" />
-                                                )}
+                                                >
+                                                    <div className="flex items-center gap-2 flex-1">
+                                                        <span className={`${selectedCategory === category.value ? 'text-blue-500' : ''}`}>
+                                                            {category.icon}
+                                                        </span>
+                                                        <span className={`${selectedCategory === category.value ? 'font-medium' : ''}`}>
+                                                            {category.label}
+                                                        </span>
+                                                    </div>
+                                                    {selectedCategory === category.value && (
+                                                        <Check size={16} className="text-blue-500" />
+                                                    )}
 
-                                                <div className={`
+                                                    <div className={`
                                                     absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500
                                                     transform scale-y-0 group-hover:scale-y-100 transition-transform duration-200 origin-center
                                                 `} />
-                                            </motion.button>
-                                        ))}
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                                                </motion.button>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
                         </div>
                     </div>
 
@@ -465,13 +460,13 @@ export default function PortfolioSection() {
                                                 <div className="flex gap-3 mt-auto">
                                                     <button
                                                         onClick={() => openProjectDetails(project)}
-                                                        className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 ease-out hover:shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02] flex items-center justify-center gap-2 group-hover:from-blue-700 group-hover:to-purple-700"
+                                                        className="flex-1 cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 ease-out hover:shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02] flex items-center justify-center gap-2 group-hover:from-blue-700 group-hover:to-purple-700"
                                                     >
                                                         <Eye size={16} className="transition-transform duration-200 group-hover:scale-110" />
                                                         Details
                                                     </button>
                                                     <button
-                                                        className={`p-2 rounded-lg transition-all duration-300 ease-out hover:scale-110 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600 text-gray-300' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
+                                                        className={`p-2 cursor-pointer rounded-lg transition-all duration-300 ease-out hover:scale-110 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600 text-gray-300' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
                                                         onClick={() => window.open(project.githubUrl, '_blank')}
                                                     >
                                                         <Github size={16} className="transition-transform duration-200 hover:rotate-12" />

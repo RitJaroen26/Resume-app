@@ -3,17 +3,17 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSidebar } from '@/context/SidebarContext';
-import { 
-    SiReact, 
-    SiHtml5, 
-    SiCss3, 
-    SiJavascript, 
-    SiTypescript, 
-    SiPython, 
-    SiPhp, 
-    SiMysql, 
-    SiMongodb, 
-    SiNextdotjs, 
+import {
+    SiReact,
+    SiHtml5,
+    SiCss3,
+    SiJavascript,
+    SiTypescript,
+    SiPython,
+    SiPhp,
+    SiMysql,
+    SiMongodb,
+    SiNextdotjs,
     SiNodedotjs,
     SiCanva,
     SiFigma,
@@ -24,12 +24,14 @@ import {
     SiTailwindcss
 } from 'react-icons/si';
 
-import { 
+import { BiLogoVisualStudio } from 'react-icons/bi';
+
+import {
     FiPenTool,
     FiMonitor,
     FiDatabase,
     FiTool
- } from "react-icons/fi";
+} from "react-icons/fi";
 
 import {
     User,
@@ -47,7 +49,7 @@ import {
 } from 'lucide-react';
 
 export default function AboutSection() {
-    const { isOpen, isDarkMode } = useSidebar();
+    const { isOpen, isDarkMode, isThai } = useSidebar();
     const [activeTab, setActiveTab] = useState('story');
     const [isVisible, setIsVisible] = useState(false);
 
@@ -119,12 +121,12 @@ export default function AboutSection() {
             title: 'Frontend',
             skill: [
                 <SiReact size={26} key="react" title="React" color="#61DAFB" />,
-                <SiHtml5 size={26} key="html" title="HTML5" color= "#E34F26" />,
-                <SiCss3 size={26} key="css" title="CSS3" color= "#1572B6" />,
-                <SiJavascript size={26} key="js" title="JavaScript" color= "#F7DF1E" />,
-                <SiTypescript size={26} key="ts" title="TypeScript"color= "#3178C6"  />,
-                <SiNextdotjs size={26} key="next" title="NextJs" color= "#000000" />,
-                <SiTailwindcss size={26} key="next" title="TailwindCSS" color= "#38BDF8" />,
+                <SiHtml5 size={26} key="html" title="HTML5" color="#E34F26" />,
+                <SiCss3 size={26} key="css" title="CSS3" color="#1572B6" />,
+                <SiJavascript size={26} key="js" title="JavaScript" color="#F7DF1E" />,
+                <SiTypescript size={26} key="ts" title="TypeScript" color="#3178C6" />,
+                <SiNextdotjs size={26} key="next" title="NextJs" color="#000000" />,
+                <SiTailwindcss size={26} key="next" title="TailwindCSS" color="#38BDF8" />,
             ]
         },
         {
@@ -132,7 +134,7 @@ export default function AboutSection() {
             title: 'Backend',
             skill: [
                 <SiNodedotjs size={26} key="node" title="NodeJS" color="#339933" />,
-                <SiPhp size={26} key="php" title="PHP" color="#777BB4"/>,
+                <SiPhp size={26} key="php" title="PHP" color="#777BB4" />,
                 <SiMysql size={26} key="mysql" title="MySQL" color="#4479A1" />,
                 <SiMongodb size={26} key="mongodb" title="MongoDB" color="#47A248" />,
                 <SiPython size={26} key="python" title="Python" color="#3776AB" />,
@@ -165,6 +167,16 @@ export default function AboutSection() {
         { name: 'Leadership', level: 75 }
     ];
 
+    const variants = {
+        hidden: {opacity: 0, y: 50},
+        visible: {opacity: 1, y: 0}
+    }
+
+    const containerVarients = {
+        hidden: {opacity: 0, x: -50},
+        visible: {opacity: 1, x: 0},
+    }
+
     return (
         <div id="about-section" className={`min-h-screen py-20 ${isDarkMode ? 'bg-[#121212]' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
             <div className="absolute inset-0">
@@ -172,7 +184,7 @@ export default function AboutSection() {
                 <div className={`absolute bottom-1/4 left-20 w-80 h-80 ${isDarkMode ? 'bg-blue-500/5' : 'bg-blue-500/10'} rounded-full blur-3xl`} />
             </div>
 
-            <div className={`relative z-10 container mx-auto ${isOpen ? "px-16" : "px-10"}`}>
+            <div className={`relative z-10 container mx-auto ${isOpen ? "px-16" : "px-10"} `}>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
@@ -191,7 +203,7 @@ export default function AboutSection() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="space-y-8"
                     >
-                        <div className={`w-90 md:w-full ml-5 md:ml-0 ${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-sm ${isDarkMode ? 'border-gray-700' : 'border-gray-100'}`}>
+                        <div className={`w-90 md:w-full md:h-full ml-5 md:ml-0 ${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-sm ${isDarkMode ? 'border-gray-700' : 'border-gray-100'}`}>
                             <div className="text-center mb-6">
                                 <div className="w-32 h-32 mx-auto mb-4 rounded-full flex items-center justify-center shadow-lg">
                                     <img src="/images/image2.jpg" alt="" className='rounded-full' />
@@ -218,6 +230,27 @@ export default function AboutSection() {
                                     </motion.div>
                                 ))}
                             </div>
+
+                            <div className='p-5 mt-5'>
+                                <h2 className='text-xl font-semibold text-white text-center'>Devtool</h2>
+                                <div className='flex flex-wrap items-center justify-center gap-10 p-5 max-w-[300px] ml-1 md:ml-35 lg:ml-0'>
+                                    <SiGithub className='cursor-pointer text-[40px] text-gray-500
+                                    transition-all duration-300 hover:translate-y-5 sm:text-[50px]
+                                    md:text-[30px]' />
+                                    <SiFigma className='cursor-pointer text-[40px] text-orange-500
+                                    transition-all duration-300 hover:translate-y-5 sm:text-[50px]
+                                    md:text-[30px]' />
+                                    <BiLogoVisualStudio className='cursor-pointer text-[40px] text-blue-500
+                                    transition-all duration-300 hover:translate-y-5 sm:text-[50px]
+                                    md:text-[30px]' />
+                                    <SiCanva className='cursor-pointer text-[40px] text-blue-500
+                                    transition-all duration-300 hover:translate-y-5 sm:text-[50px]
+                                    md:text-[30px]' />
+                                    <SiPostman className='cursor-pointer text-[40px] text-orange-500
+                                    transition-all duration-300 hover:translate-y-5 sm:text-[50px]
+                                    md:text-[30px]' />
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
 
@@ -233,10 +266,10 @@ export default function AboutSection() {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeTab === tab.id
-                                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                                            : isDarkMode
-                                                ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                                        : isDarkMode
+                                            ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                         }`}
                                 >
                                     {tab.icon}
@@ -256,9 +289,9 @@ export default function AboutSection() {
                                         transition={{ duration: 0.3 }}
                                         className="space-y-6"
                                     >
-                                        <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
+                                        {/* <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
                                             My Story
-                                        </h3>
+                                        </h3> */}
                                         <div className="space-y-4 text-lg leading-relaxed">
                                             <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                                                 I’m Computer Science student with an interest in trying new
@@ -267,6 +300,21 @@ export default function AboutSection() {
                                                 learning new things to further develop my skills and challenge
                                                 myself.
                                             </p>
+
+                                            <div className="flex justify-center mt-2">
+                                                <motion.div 
+                                                variants={variants}
+                                                initial="hidden"
+                                                whileInView="visible"
+                                                animate={{x: 0, opacity: 1}}
+                                                transition={{duration: 1}} 
+                                                className={`${isDarkMode ? "bg-[#404040]" : "bg-gray-200"} p-10 rounded-2xl shadow-xl max-w-full md:w-[500px] md:h-[290px]`}>
+                                                    <h2 className={`text-xl font-semibold mb-2 ${isDarkMode ? "text-white" : "text-gray-500"}`}>Career Objectives</h2>
+                                                    <p className={`${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
+                                                        I aim to develop more efficient coding skills, while learning new concepts in software design, scalability, and excellent responsiveness to user needs, as well as developing effective project management and team collaboration skills.
+                                                    </p>
+                                                </motion.div>
+                                            </div>
                                         </div>
                                     </motion.div>
                                 )}
@@ -340,7 +388,7 @@ export default function AboutSection() {
                                                             {value.title}
                                                         </h4>
                                                     </div>
-                                                    
+
                                                     <div className='flex justify-center gap-4 flex-wrap'>
                                                         {value.skill.map((skill, i) => (
                                                             <div

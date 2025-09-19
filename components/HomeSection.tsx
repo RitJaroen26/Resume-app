@@ -17,7 +17,7 @@ import {
 import { useSidebar } from '@/context/SidebarContext';
 
 export default function HomeSection() {
-    const { isOpen, isDarkMode } = useSidebar();
+    const { isOpen, isDarkMode, isThai } = useSidebar();
     const [currentRole, setCurrentRole] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -78,12 +78,12 @@ export default function HomeSection() {
                             className="space-y-2"
                         >
                             <p className={`text-lg font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
-                                Hello, I'm
+                                {isThai ? "สวัสดี ฉันชื่อ" : "Hello, I'm"}
                             </p>
                             <h1 className={`text-7xl md:text-5xl lg:text-6xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
-                                Pawarit
+                                {isThai ? "ปวริศร์" : "Pawarit"}
                                 <span className={`hidden md:block ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                                    Jaroenphatthanasiri
+                                    {isThai ? "เจริญพัฒนศิริ" : "Jaroenphatthanasiri"}
                                 </span>
                             </h1>
                         </motion.div>
@@ -95,7 +95,7 @@ export default function HomeSection() {
                             className="h-16 -mt-10 md:-mt-0 flex items-center"
                         >
                             <span className={`text-2xl lg:text-3xl font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} mr-4`}>
-                                I'm a
+                                {isThai ? "ฉันเป็น" : "I'm a"}
                             </span>
                             <div className="relative">
                                 <AnimatePresence mode="wait">
@@ -119,8 +119,9 @@ export default function HomeSection() {
                             transition={{ delay: 0.6 }}
                             className={`text-lg leading-relaxed w-100 md:w-full ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-lg`}
                         >
-                            I'm Computer Science Student and Developer with a passion for developing software,
-                            technology through creativity and problem solving, turning ideas into practical experiences.
+                            {isThai
+                            ? "ฉันเป็นนักศึกษาและนักพัฒนาสาขาวิทยาการคอมพิวเตอร์ ผู้มีความหลงใหลในการพัฒนาซอฟต์แวร์และเทคโนโลยีผ่านความคิดสร้างสรรค์และการแก้ปัญหา โดยเปลี่ยนแนวคิดให้กลายเป็นประสบการณ์จริง"
+                            : "I'm Computer Science Student and Developer with a passion for developing software, technology through creativity and problem solving, turning ideas into practical experiences."}
                         </motion.p>
 
                         <motion.div
@@ -133,7 +134,7 @@ export default function HomeSection() {
                                 onClick={() => scrollToSection('portfolio-section')}
                                 className="group w-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 flex items-center gap-2"
                             >
-                                View My Work
+                                {isThai ? "ดูผลงาน" : "View My Work"}
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
 
@@ -142,7 +143,7 @@ export default function HomeSection() {
                                 className={`group w-50 border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2`}
                             >
                                 <Download size={20} />
-                                Download CV
+                                {isThai ? "ดาวน์โหลด CV" : "Download CV"}
                             </button>
                         </motion.div>
 

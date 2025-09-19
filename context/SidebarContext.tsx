@@ -7,6 +7,8 @@ interface SidebarContextType {
   toggleSidebar: () => void;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  isThai: boolean;
+  toggleThai: () => void;
 }
 
 export const SidebarContext = createContext<SidebarContextType>({
@@ -14,6 +16,8 @@ export const SidebarContext = createContext<SidebarContextType>({
   toggleSidebar: () => {},
   isDarkMode: false,
   toggleDarkMode: () => {},
+  isThai: false,
+  toggleThai: () => {},
 });
 
 export const useSidebar = () => useContext(SidebarContext);
