@@ -71,6 +71,7 @@ export default function AboutSection() {
     }, []);
 
     const fullText = "I am a Computer Science student with a strong passion for exploring new technologies and applying them to solve real-world problems. My journey in technology is driven by curiosity, creativity, and a hands-on approach to learning, which allows me to continuously improve my skills and adapt to different challenges. I enjoy experimenting with emerging tools and frameworks, turning ideas into practical solutions, and learning from both successes and failures along the way. Whether working individually or as part of a team, I am adaptable, resilient, and able to perform well under pressure, ensuring that I deliver results while maintaining quality and efficiency."
+    const shortText = fullText.slice(0, 300);;
 
     const tabs = [
         { id: 'story', label: 'My Story', icon: <User size={20} /> },
@@ -171,14 +172,60 @@ export default function AboutSection() {
     ];
 
     const variants = {
-        hidden: {opacity: 0, y: 50},
-        visible: {opacity: 1, y: 0}
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 }
     }
 
     const containerVarients = {
-        hidden: {opacity: 0, x: -50},
-        visible: {opacity: 1, x: 0},
+        hidden: { opacity: 0, x: -50 },
+        visible: { opacity: 1, x: 0 },
     }
+
+    const textVariants = {
+        collapsed: {
+            opacity: 0,
+            height: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeInOut",
+                when: "afterChildren"
+            }
+        },
+        expanded: {
+            opacity: 1,
+            height: "auto",
+            transition: {
+                duration: 0.5,
+                ease: "easeInOut",
+                when: "beforeChildren"
+            }
+        }
+    };
+
+    const buttonVariants = {
+        rest: {
+            scale: 1,
+            backgroundColor: isDarkMode ? "rgba(75, 85, 99, 0.2)" : "rgba(59, 130, 246, 0.1)"
+        },
+        hover: {
+            scale: 1.05,
+            backgroundColor: isDarkMode ? "rgba(59, 130, 246, 0.2)" : "rgba(59, 130, 246, 0.2)",
+            transition: {
+                duration: 0.2,
+                ease: "easeInOut"
+            }
+        },
+        tap: {
+            scale: 0.95
+        }
+    };
+
+    const iconVariants = {
+        rest: { rotate: 0 },
+        hover: { rotate: isExpanded ? 180 : 0 },
+        expanded: { rotate: 180 },
+        collapsed: { rotate: 0 }
+    };
 
     return (
         <div id="about-section" className={`min-h-screen py-20 ${isDarkMode ? 'bg-[#121212]' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
@@ -293,12 +340,18 @@ export default function AboutSection() {
                                         className="space-y-6"
                                     >
                                         <div className="space-y-4 text-lg leading-relaxed flex flex-col justify-center">
-                                            <p
-                                                className={`md:hidden ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} 
-                                                ${!isExpanded ? 'line-clamp-5 overflow-hidden' : ''}`}
-                                            >
-                                                {fullText}
-                                            </p>
+                                            <AnimatePresence initial={false}>
+                                                <motion.div
+                                                    key={isExpanded ? 'full' : 'short'}
+                                                    initial={{ opacity: 0, y: -10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: 10 }}
+                                                    transition={{ duration: 0.4 }}
+                                                    className={`md:hidden ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+                                                >
+                                                    <p>{isExpanded ? fullText : shortText + '...'}</p>
+                                                </motion.div>
+                                            </AnimatePresence>
 
                                             <button
                                                 className={`md:hidden ${isDarkMode ? "text-gray-200" : "text-gray-600"} font-medium text-[16px] underline cursor-pointer`}
@@ -306,19 +359,19 @@ export default function AboutSection() {
                                             >
                                                 {isExpanded ? 'Read Less' : 'Read More'}
                                             </button>
-                                            
+
                                             <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} hidden md:block`}>
                                                 {fullText}
                                             </p>
 
                                             <div className="flex justify-center mt-6">
-                                                <motion.div 
-                                                variants={variants}
-                                                initial="hidden"
-                                                whileInView="visible"
-                                                animate={{x: 0, opacity: 1}}
-                                                transition={{duration: 1}} 
-                                                className={`${isDarkMode ? "bg-[#404040]" : "bg-gray-200"} p-10 rounded-2xl shadow-xl max-w-full md:w-[500px] md:h-[290px]`}>
+                                                <motion.div
+                                                    variants={variants}
+                                                    initial="hidden"
+                                                    whileInView="visible"
+                                                    animate={{ x: 0, opacity: 1 }}
+                                                    transition={{ duration: 1 }}
+                                                    className={`${isDarkMode ? "bg-[#404040]" : "bg-gray-200"} p-10 rounded-2xl shadow-xl max-w-full md:w-[500px] md:h-[290px]`}>
                                                     <h2 className={`text-xl font-semibold mb-2 ${isDarkMode ? "text-white" : "text-gray-500"}`}>Career Objectives</h2>
                                                     <p className={`${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
                                                         I aim to develop more efficient coding skills, while learning new concepts in software design, scalability, and excellent responsiveness to user needs, as well as developing effective project management and team collaboration skills.
