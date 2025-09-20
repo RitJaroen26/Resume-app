@@ -26,13 +26,6 @@ export default function HomeSection() {
         "Freelance",
     ];
 
-    const skills = [
-        { icon: <Code size={24} />, name: "Web Development", color: "from-blue-500 to-cyan-500" },
-        { icon: <Database size={24} />, name: "Database Design", color: "from-green-500 to-emerald-500" },
-        { icon: <Globe size={24} />, name: "API Development", color: "from-purple-500 to-pink-500" },
-        { icon: <Smartphone size={24} />, name: "Mobile Apps", color: "from-orange-500 to-red-500" }
-    ];
-
     const stats = [
         { number: "2+", label: "Years Experience", delay: 0.2 },
         { number: "15+", label: "Projects Completed", delay: 0.4 },
