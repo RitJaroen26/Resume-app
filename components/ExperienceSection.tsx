@@ -95,8 +95,8 @@ export default function ExperienceSection() {
             image: "/images/work_image1.jpg",
             organization: "Regexinnovation Co., Ltd.",
             location: "Huai Khwang, Bangkok",
-            startDate: "16 Jun 2025",
-            endDate: "5 Oct 2025",
+            startDate: "Jun 2025",
+            endDate: "Oct 2025",
             duration: "4 months",
             category: "Internship",
             description: "Gain hands-on experience in front-end and back-end development, participating in corporate projects.",
@@ -119,19 +119,31 @@ export default function ExperienceSection() {
         {
             id: 2,
             type: "work",
-            title: "Coming Soon",
-            image: "",
-            organization: "",
-            location: "-",
-            startDate: "",
-            endDate: "",
-            duration: "-",
-            category: "",
-            description: "",
-            longDescription: "",
-            responsibilities: [],
-            technologies: [],
-            achievements: [],
+            title: "Construction Site Supervisor",
+            image: "/images/work_image2.jpg",
+            organization: "Benja Polykhot Co., Ltd.",
+            location: "Bang Kruai, Nonthaburi",
+            startDate: "Mar 2023",
+            endDate: "May 2023",
+            duration: "3 months",
+            category: "Full-time",
+            description: "Create and supervise construction plans on site to ensure they comply with engineering standards and the specified timeframe, including inspecting work quality, coordinating with the team, and ensuring safety in the construction area.",
+            longDescription: "Responsible for controlling and supervising construction on site by checking that the work complies with the blueprints, engineering standards, and project conditions. Follow up on the progress of the work to ensure completion according to the specified plan and budget. Oversee and inspect the quality of materials and every step of the work process, as well as coordinating between engineers, designers, contractors, and construction workers to ensure the work proceeds smoothly.",
+            responsibilities: [
+                "The prototype oversees the work before it is completed according to engineering plans and safety standards.",
+                "Check and monitor the progress of construction work to ensure completion on schedule and within budget.",
+                "Check the quality of construction materials used to ensure they meet the specified standards and specifications.",
+                "Maintain order and safety of personnel in the construction area.",
+                "Prepare construction progress reports and submit them to the project manager or supervising engineer."
+            ],
+            technologies: [
+                "scaffolding app",
+            ],
+            achievements: [
+                "Controlling the construction budget helps reduce costs from using consumables and increases efficiency in resource management, resulting in projects saving more than 10% of their budget.",
+                "Improving work site safety, managing safety systems and training staff has resulted in a nearly 0% reduction in work site accident rates.",
+                "Manage the team efficiently, able to take care of more than XX workers, and prioritize work, making the work within the team systematic and reducing errors.",
+            ],
             icon: <Code2 size={24} />,
             color: "from-purple-500 to-pink-500"
         },
@@ -487,6 +499,20 @@ export default function ExperienceSection() {
                                 >
                                     <X size={24} />
                                 </button>
+                            </div>
+
+                            <div className={`relative h-48 md:h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-6 flex items-center justify-center overflow-hidden`}>
+                                {selectedExperience.image ? (
+                                    <img
+                                        src={selectedExperience.image}
+                                        alt={selectedExperience.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <div className="text-white text-6xl">
+                                        {selectedExperience.icon}
+                                    </div>
+                                )}
                             </div>
 
                             <div className="mb-6">

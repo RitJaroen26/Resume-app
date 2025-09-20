@@ -52,6 +52,7 @@ export default function AboutSection() {
     const { isOpen, isDarkMode, isThai } = useSidebar();
     const [activeTab, setActiveTab] = useState('story');
     const [isVisible, setIsVisible] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -68,6 +69,8 @@ export default function AboutSection() {
 
         return () => observer.disconnect();
     }, []);
+
+    const fullText = "I am a Computer Science student with a strong passion for exploring new technologies and applying them to solve real-world problems. My journey in technology is driven by curiosity, creativity, and a hands-on approach to learning, which allows me to continuously improve my skills and adapt to different challenges. I enjoy experimenting with emerging tools and frameworks, turning ideas into practical solutions, and learning from both successes and failures along the way. Whether working individually or as part of a team, I am adaptable, resilient, and able to perform well under pressure, ensuring that I deliver results while maintaining quality and efficiency."
 
     const tabs = [
         { id: 'story', label: 'My Story', icon: <User size={20} /> },
@@ -289,19 +292,26 @@ export default function AboutSection() {
                                         transition={{ duration: 0.3 }}
                                         className="space-y-6"
                                     >
-                                        {/* <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
-                                            My Story
-                                        </h3> */}
-                                        <div className="space-y-4 text-lg leading-relaxed">
-                                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                                                I’m Computer Science student with an interest in trying new
-                                                technologies through problem solving, creativity and hands-on
-                                                experience. I am adaptable and work under pressure. I am also always
-                                                learning new things to further develop my skills and challenge
-                                                myself.
+                                        <div className="space-y-4 text-lg leading-relaxed flex flex-col justify-center">
+                                            <p
+                                                className={`md:hidden ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} 
+                                                ${!isExpanded ? 'line-clamp-5 overflow-hidden' : ''}`}
+                                            >
+                                                {fullText}
                                             </p>
 
-                                            <div className="flex justify-center mt-2">
+                                            <button
+                                                className={`md:hidden ${isDarkMode ? "text-gray-200" : "text-gray-600"} font-medium text-[16px] underline cursor-pointer`}
+                                                onClick={() => setIsExpanded(!isExpanded)}
+                                            >
+                                                {isExpanded ? 'Read Less' : 'Read More'}
+                                            </button>
+                                            
+                                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} hidden md:block`}>
+                                                {fullText}
+                                            </p>
+
+                                            <div className="flex justify-center mt-6">
                                                 <motion.div 
                                                 variants={variants}
                                                 initial="hidden"

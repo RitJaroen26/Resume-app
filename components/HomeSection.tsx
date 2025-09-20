@@ -78,7 +78,7 @@ export default function HomeSection() {
                             className="space-y-2"
                         >
                             <p className={`text-lg font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
-                                {isThai ? "สวัสดี ฉันชื่อ" : "Hello, I'm"}
+                                {isThai ? "สวัสดี ผมชื่อ" : "Hello, I'm"}
                             </p>
                             <h1 className={`text-7xl md:text-5xl lg:text-6xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
                                 {isThai ? "ปวริศร์" : "Pawarit"}
@@ -95,7 +95,7 @@ export default function HomeSection() {
                             className="h-16 -mt-10 md:-mt-0 flex items-center"
                         >
                             <span className={`text-2xl lg:text-3xl font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} mr-4`}>
-                                {isThai ? "ฉันเป็น" : "I'm a"}
+                                {isThai ? "ผมเป็น" : "I'm a"}
                             </span>
                             <div className="relative">
                                 <AnimatePresence mode="wait">
@@ -120,7 +120,7 @@ export default function HomeSection() {
                             className={`text-lg leading-relaxed w-100 md:w-full ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-lg`}
                         >
                             {isThai
-                            ? "ฉันเป็นนักศึกษาและนักพัฒนาสาขาวิทยาการคอมพิวเตอร์ ผู้มีความหลงใหลในการพัฒนาซอฟต์แวร์และเทคโนโลยีผ่านความคิดสร้างสรรค์และการแก้ปัญหา โดยเปลี่ยนแนวคิดให้กลายเป็นประสบการณ์จริง"
+                            ? "ผมเป็นนักศึกษาและนักพัฒนาสาขาวิทยาการคอมพิวเตอร์ ผู้มีความหลงใหลในการพัฒนาซอฟต์แวร์และเทคโนโลยีผ่านความคิดสร้างสรรค์และการแก้ปัญหา โดยเปลี่ยนแนวคิดให้กลายเป็นประสบการณ์จริง"
                             : "I'm Computer Science Student and Developer with a passion for developing software, technology through creativity and problem solving, turning ideas into practical experiences."}
                         </motion.p>
 
@@ -177,10 +177,9 @@ export default function HomeSection() {
                         className="space-y-8"
                     >
                         <div className="hidden xl:flex relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
-                            {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse" /> */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse" />
                             <div className={`relative w-full h-full ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-full flex items-center justify-center overflow-hidden`}>
                                 <div className="w-110 h-110 rounded-full flex items-center justify-center">
-                                    {/* <span className="text-4xl font-bold text-white">P</span> */}
                                     <img src="/images/pawarit.jpg" alt="" />
                                 </div>
                             </div>

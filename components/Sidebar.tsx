@@ -50,13 +50,13 @@ export default function Sidebar({ children }: SidebarProps) {
             } else {
                 document.documentElement.classList.remove("dark");
                 document.documentElement.classList.remove("thai");
-            }             
+            }
         }
 
         const checkMobile = () => {
             const newIsMobile = window.innerWidth < 1024;
             setIsMobile(newIsMobile);
-            
+
             if (newIsMobile) {
                 setIsOpen(false);
             }
@@ -64,7 +64,7 @@ export default function Sidebar({ children }: SidebarProps) {
 
         checkMobile();
         window.addEventListener('resize', checkMobile);
-        
+
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
@@ -161,12 +161,46 @@ export default function Sidebar({ children }: SidebarProps) {
             labelThai: "การศึกษา",
             id: "education-section",
             hasDropdown: true,
+            contentClass: `${isOpen ? "-translate-y-80" : "-translate-y-50"}`,  
             content: (
-                <div className="p-4 min-w-[200px]">
-                    <h3 className="text-lg font-semibold text-center text-gray-800">Education</h3>
-                    <p className="text-sm text-gray-600 text-center mt-2">
-                        Click to view education details
-                    </p>
+                <div className="p-4 min-w-[400px]">
+                    <h3 className={`text-lg font-semibold ${isDarkMode ? "text-white" : "text-gray-800"} mb-6`}>Education</h3>
+
+                    <div className="relative ml-3 space-y-6">
+
+                        <div className="relative pl-6">
+                            <span className="absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                                <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2018 - 2022</p>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} w-70`}>Sarasas Witaed Rangsit School</h4>
+                                <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
+                                    High School Degree
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="relative pl-6">
+                            <span className="absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                                <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2022 - 2025</p>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} w-70`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
+                                <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
+                                    Bachelor's Degree
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="relative pl-6">
+                            <span className="absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                                <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2018 - 2022</p>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} w-70`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
+                                <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
+                                    Bachelor's Degree
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             ),
         },
@@ -230,7 +264,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                                         transition={{ delay: 0.1 }}
                                                     >
                                                         <span className={`font-bold text-xl ${isDarkMode ? "text-white" : "text-gray-800"}`}>
-                                                            {isThai ? "ปวริศร์" : "Pawarit"} 
+                                                            {isThai ? "ปวริศร์" : "Pawarit"}
                                                         </span>
                                                     </motion.div>
                                                 )}
@@ -359,6 +393,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                                     <AnimatePresence>
                                                         {isClient && activeDropdown === item.id && (
                                                             <motion.div
+                                                                key={item.id}
                                                                 initial={{ opacity: 0, x: 10, scale: 0.95 }}
                                                                 animate={{ opacity: 1, x: 0, scale: 1 }}
                                                                 exit={{ opacity: 0, x: 10, scale: 0.95 }}
@@ -368,9 +403,9 @@ export default function Sidebar({ children }: SidebarProps) {
                                                                     top: dropdownRef.current?.getBoundingClientRect().top ?? 0,
                                                                     left: (isMobile ? 280 : (isOpen ? 280 : 80)) + 16,
                                                                     zIndex: 9999,
-                                                                    minWidth: 250
+                                                                    minWidth: 250,
                                                                 }}
-                                                                className={`${isDarkMode ? "bg-gray-800" : "bg-white"} shadow-lg rounded-xl p-4`}
+                                                                className={`${isDarkMode ? "bg-black/80" : "bg-white"} shadow-lg rounded-xl p-4 ${item.contentClass || ""}`}
                                                             >
                                                                 {item.subMenu ? (
                                                                     <div>
