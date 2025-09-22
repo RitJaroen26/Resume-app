@@ -62,7 +62,7 @@ export default function HomeSection() {
             </div>
 
             <div className={`relative z-10 container mx-auto ${isOpen ? "px-16" : "px-10"} py-20`}>
-                <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
@@ -115,7 +115,7 @@ export default function HomeSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
-                            className={`text-lg leading-relaxed w-100 md:w-full ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-lg`}
+                            className={`text-lg leading-relaxed text-center md:textleft w-70 md:w-full ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-lg`}
                         >
                             {isThai
                             ? "ผมเป็นนักศึกษาและนักพัฒนาสาขาวิทยาการคอมพิวเตอร์ ผู้มีความหลงใหลในการพัฒนาซอฟต์แวร์และเทคโนโลยีผ่านความคิดสร้างสรรค์และการแก้ปัญหา โดยเปลี่ยนแนวคิดให้กลายเป็นประสบการณ์จริง"
@@ -126,7 +126,7 @@ export default function HomeSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8 }}
-                            className="flex flex-col md:flex-row ml-25 md:ml-0 gap-4"
+                            className="flex flex-col md:flex-row ml-10 sm:ml-20 md:ml-0 gap-4"
                         >
                             <button
                                 onClick={() => scrollToSection('portfolio-section')}
