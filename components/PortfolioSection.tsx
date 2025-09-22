@@ -183,7 +183,7 @@ export default function PortfolioSection() {
         if (filteredMiniProjects.length === 0) return [];
 
         if (isMobile) {
-            return [{ ...filteredMiniProjects[currentIndex % filteredMiniProjects.length], position: 0 }];
+            return [{ ...filteredMiniProjects[currentIndexMini % filteredMiniProjects.length], position: 0 }];
         } else {
             const result = [];
             for (let i = 0; i < Math.min(3, filteredMiniProjects.length); i++) {
@@ -627,7 +627,7 @@ export default function PortfolioSection() {
                     className="text-center"
                 >
                     <div className='flex flex-col-reverse md:flex-row justify-between md:ml-10 items-center mt-20'>
-                        <h1 className={`text-[20px] md:text-[30px] ${isDarkMode ? "text-white" : "text-gray-600"} mb-4 text-[30px] font-semibold`}>Workshops</h1>
+                        <h1 className={`text-[20px] md:text-[30px] ${isDarkMode ? "text-white" : "text-gray-600"} mb-4 text-[30px] font-semibold`}>Workshop</h1>
 
                         <div className={`hidden md:block text-[15px] ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} mb-4`}>
                             Showing {filteredMiniProjects.length} {filteredMiniProjects.length === 1 ? 'workshops' : 'workshop'}

@@ -134,7 +134,7 @@ export default function AboutSection() {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeTab === tab.id
-                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg cursor-pointer'
                                         : isDarkMode
                                             ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -213,7 +213,7 @@ export default function AboutSection() {
                                     </motion.div>
                                 )}
 
-                                {activeTab === 'journey' && (
+                                {/* {activeTab === 'journey' && (
                                     <motion.div
                                         key="journey"
                                         initial={{ opacity: 0, y: 20 }}
@@ -235,7 +235,7 @@ export default function AboutSection() {
                                                 >
                                                     <div className="flex-shrink-0">
                                                         <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center text-white font-bold shadow-lg`}>
-                                                            {item.year.slice(-2)}
+                                                            {item.year}
                                                         </div>
                                                     </div>
                                                     <div className="flex-1">
@@ -250,7 +250,7 @@ export default function AboutSection() {
                                             ))}
                                         </div>
                                     </motion.div>
-                                )}
+                                )} */}
 
                                 {activeTab === 'values' && (
                                     <motion.div
@@ -283,16 +283,21 @@ export default function AboutSection() {
                                                         </h4>
                                                     </div>
 
-                                                    <div className='flex justify-center gap-4 flex-wrap'>
+                                                    <div className='flex justify-center gap-4 flex-wrap space-y-2'>
                                                         {value.skill.map((skill, i) => (
                                                             <div
                                                                 key={i}
                                                                 className={`w-12 h-12 rounded-lg flex items-center justify-center transition-transform transform hover:scale-110`}
                                                                 aria-hidden={false}
                                                             >
-                                                                <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'}`}>
-                                                                    {skill}
-                                                                </span>
+                                                                <div className='flex flex-col items-center'>
+                                                                    <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'}`}>
+                                                                        {skill.icon}
+                                                                    </span>
+                                                                    <p className="text-xs mt-2 text-gray-500 dark:text-gray-400 text-center">
+                                                                        {skill.title}
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         ))}
                                                     </div>

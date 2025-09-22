@@ -31,9 +31,9 @@ export default function HomeSection() {
     const totalSkills = values.reduce((acc, category) => acc + category.skill.length, 0);
 
     const stats = [
-        { number: "1", label: "Years Experience", delay: 0.2 },
-        { number: `${projects.length}`, label: "Projects Completed", delay: 0.4 },
-        { number: `${totalSkills}`, label: "Technologies", delay: 0.6 },
+        { number: "1", label: "Years Experience", thaiLabel: "เดือนสำหรับประสบการณ์", delay: 0.2 },
+        { number: `${projects.length}`, label: "Projects Completed", thaiLabel: "โปรเจ็กต์ที่สำเร็จ", delay: 0.4 },
+        { number: `${totalSkills}`, label: "Technologies", thaiLabel: "เทคโนโลยี", delay: 0.6 },
     ];
 
     useEffect(() => {
@@ -203,7 +203,7 @@ export default function HomeSection() {
                                 {stat.number}
                             </h3>
                             <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} font-medium`}>
-                                {stat.label}
+                                {isThai ? stat.thaiLabel : stat.label}
                             </p>
                         </motion.div>
                     ))}
