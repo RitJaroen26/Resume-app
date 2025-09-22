@@ -6,10 +6,10 @@ import { projects } from './Data/projectsData';
 import { values } from './Data/aboutData';
 import {
     ChevronDown,
-    Code,
-    Database,
-    Globe,
-    Smartphone,
+    // Code,
+    // Database,
+    // Globe,
+    // Smartphone,
     ArrowRight,
     Download,
     Github,

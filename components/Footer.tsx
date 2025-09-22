@@ -8,14 +8,14 @@ import {
     Phone,
     MapPin,
     Github,
-    Linkedin,
+    // Linkedin,
     Instagram,
     Facebook,
-    Send,
+    // Send,
     ArrowUp,
-    Heart,
+    // Heart,
     Code,
-    Coffee,
+    // Coffee,
     ExternalLink
 } from 'lucide-react';
 

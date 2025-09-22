@@ -3,7 +3,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSidebar } from '@/context/SidebarContext';
-import { tabs, journey, values, skills } from './Data/aboutData';
+import { 
+    tabs, 
+    // journey, 
+    values, 
+    skills 
+} from './Data/aboutData';
+
 import {
     SiCanva,
     SiFigma,

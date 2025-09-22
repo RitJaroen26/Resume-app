@@ -13,12 +13,12 @@ import {
     Tag,
     X,
     Eye,
-    Code,
-    Smartphone,
-    Globe,
-    Database,
-    Palette,
-    Camera,
+    // Code,
+    // Smartphone,
+    // Globe,
+    // Database,
+    // Palette,
+    // Camera,
     ChevronDown,
     Check
 } from 'lucide-react';
