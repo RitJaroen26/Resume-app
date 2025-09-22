@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { projects } from './Data/projectsData';
+import { values } from './Data/aboutData';
 import {
     ChevronDown,
     Code,
@@ -26,10 +28,12 @@ export default function HomeSection() {
         "Freelance",
     ];
 
+    const totalSkills = values.reduce((acc, category) => acc + category.skill.length, 0);
+
     const stats = [
-        { number: "2+", label: "Years Experience", delay: 0.2 },
-        { number: "15+", label: "Projects Completed", delay: 0.4 },
-        { number: "5+", label: "Technologies", delay: 0.6 },
+        { number: "1", label: "Years Experience", delay: 0.2 },
+        { number: `${projects.length}`, label: "Projects Completed", delay: 0.4 },
+        { number: `${totalSkills}`, label: "Technologies", delay: 0.6 },
     ];
 
     useEffect(() => {
