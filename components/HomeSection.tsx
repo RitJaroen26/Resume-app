@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from './Data/projectsData';
@@ -178,7 +179,7 @@ export default function HomeSection() {
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse" />
                             <div className={`relative w-full h-full ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-full flex items-center justify-center overflow-hidden`}>
                                 <div className="w-110 h-110 rounded-full flex items-center justify-center">
-                                    <img src="/images/pawarit.jpg" alt="" />
+                                    <Image src="/images/pawarit.jpg" width={800} height={400} alt="" />
                                 </div>
                             </div>
                         </div>

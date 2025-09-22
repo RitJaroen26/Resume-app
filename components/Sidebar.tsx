@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BsFacebook, BsGithub, BsInstagram } from 'react-icons/bs'
+import { BsGithub, BsInstagram } from 'react-icons/bs'
 import {
     Home,
     Users,
@@ -185,7 +185,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2022 - 2025</p>
                                 <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} w-70`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
-                                    Bachelor's Degree
+                                    Bachelor&apos;s Degree
                                 </p>
                             </div>
                         </div>
@@ -196,7 +196,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2018 - 2022</p>
                                 <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} w-70`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
-                                    Bachelor's Degree
+                                    Bachelor&apos;s Degree
                                 </p>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSidebar } from '@/context/SidebarContext';
@@ -80,7 +81,7 @@ export default function AboutSection() {
                         <div className={`w-90 md:w-full md:h-full ml-5 md:ml-0 ${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-sm ${isDarkMode ? 'border-gray-700' : 'border-gray-100'}`}>
                             <div className="text-center mb-6">
                                 <div className="w-32 h-32 mx-auto mb-4 rounded-full flex items-center justify-center shadow-lg">
-                                    <img src="/images/image2.jpg" alt="" className='rounded-full' />
+                                    <Image src="/images/image2.jpg" alt="" className='rounded-full' width={128} height={128} />
                                 </div>
                                 <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
                                     {isThai ? "ปวริศร์ เจริญพัฒนศิริ" : "Pawarit Jaroenphatthanasiri"}

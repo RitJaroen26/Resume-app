@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSidebar } from '@/context/SidebarContext';
@@ -119,7 +120,7 @@ export default function PortfolioSection() {
     const prevSlideMiniProject = () => {
         setCurrentIndexMini((prev) => (prev - 1 + filteredMiniProjects.length) % filteredMiniProjects.length);
     };
-    
+
     const openProjectDetails = (project: Project) => {
         setSelectedProject(project);
 
@@ -394,10 +395,12 @@ export default function PortfolioSection() {
                                             <div className={`relative h-56 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center overflow-hidden`}>
                                                 <div className="text-white text-4xl w-full h-full relative group-hover:scale-105 transition-transform duration-700 ease-out">
                                                     {project.image ? (
-                                                        <img
+                                                        <Image
                                                             src={project.image}
                                                             alt={project.title}
                                                             className="w-full h-full object-cover"
+                                                            fill
+                                                            style={{ objectFit: 'cover' }}
                                                         />
                                                     ) : (
                                                         <div className="flex items-center justify-center h-full">
@@ -546,10 +549,12 @@ export default function PortfolioSection() {
                             <div className="flex-1 overflow-y-auto">
                                 <div className={`relative h-48 md:h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-6 flex items-center justify-center overflow-hidden`}>
                                     {selectedProject.image ? (
-                                        <img
+                                        <Image
                                             src={selectedProject.image}
                                             alt={selectedProject.title}
                                             className="w-full h-full object-cover"
+                                            fill
+                                            style={{ objectFit: 'cover' }}
                                         />
                                     ) : (
                                         <div className="text-white text-6xl">
@@ -783,10 +788,12 @@ export default function PortfolioSection() {
                                             <div className={`relative h-56 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center overflow-hidden`}>
                                                 <div className="text-white text-4xl w-full h-full relative group-hover:scale-105 transition-transform duration-700 ease-out">
                                                     {project.image ? (
-                                                        <img
+                                                        <Image
                                                             src={project.image}
                                                             alt={project.title}
                                                             className="w-full h-full object-cover"
+                                                            fill
+                                                            style={{ objectFit: 'cover' }}
                                                         />
                                                     ) : (
                                                         <div className="flex items-center justify-center h-full">
@@ -935,10 +942,12 @@ export default function PortfolioSection() {
                             <div className="flex-1 overflow-y-auto">
                                 <div className={`relative h-48 md:h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-6 flex items-center justify-center overflow-hidden`}>
                                     {selectedMiniProject.image ? (
-                                        <img
+                                        <Image
                                             src={selectedMiniProject.image}
                                             alt={selectedMiniProject.title}
                                             className="w-full h-full object-cover"
+                                            fill
+                                            style={{ objectFit: 'cover' }}
                                         />
                                     ) : (
                                         <div className="text-white text-6xl">

@@ -21,24 +21,24 @@ import {
 
 import {
     User,
-    Calendar,
-    MapPin,
-    GraduationCap,
-    Coffee,
+    // Calendar,
+    // MapPin,
+    // GraduationCap,
+    // Coffee,
     Code2,
-    Lightbulb,
-    Target,
+    // Lightbulb,
+    // Target,
     Heart,
-    Award,
-    BookOpen,
-    Zap,
+    // Award,
+    // BookOpen,
+    // Zap,
 } from 'lucide-react';
 
-import { BiLogoVisualStudio } from 'react-icons/bi';
+// import { BiLogoVisualStudio } from 'react-icons/bi';
 
 import {
     FiPenTool,
-    FiMonitor,
+    // FiMonitor,
     FiDatabase,
     FiTool
 } from "react-icons/fi";

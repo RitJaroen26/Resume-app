@@ -1,20 +1,20 @@
 import {
-    ChevronLeft,
-    ChevronRight,
-    ExternalLink,
-    Github,
-    Calendar,
-    Tag,
-    X,
-    Eye,
+    // ChevronLeft,
+    // ChevronRight,
+    // ExternalLink,
+    // Github,
+    // Calendar,
+    // Tag,
+    // X,
+    // Eye,
     Code,
     Smartphone,
     Globe,
-    Database,
+    // Database,
     Palette,
     Camera,
-    ChevronDown,
-    Check
+    // ChevronDown,
+    // Check
 } from 'lucide-react';
 import { JSX } from "react";
 
