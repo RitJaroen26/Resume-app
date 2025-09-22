@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSidebar } from '@/context/SidebarContext';
-import { projects, Project, miniProjects, MiniProject } from './Data/projectsData';
+import { projects, Project, miniProjects, MiniProject, categories, categoriesMini } from './Data/projectsData';
 import {
     ChevronLeft,
     ChevronRight,
@@ -79,9 +79,6 @@ export default function PortfolioSection() {
             document.addEventListener('mousedown', handleClickOutside);
             return () => document.removeEventListener('mousedown', handleClickOutside);
         }
-
-        // document.addEventListener('mousedown', handleClickOutside);
-        // return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [isComboboxOpen]);
 
     useEffect(() => {
@@ -96,24 +93,7 @@ export default function PortfolioSection() {
             document.addEventListener('mousedown', handleClickMiniOutside);
             return () => document.removeEventListener('mousedown', handleClickMiniOutside);
         }
-
-        // document.addEventListener('mousedown', handleClickMiniOutside);
-        // return () => document.removeEventListener('mousedown', handleClickMiniOutside);
     }, [isComboboxMiniOpen]);
-
-    const categories = [
-        { value: "All", label: "All Projects", icon: <Globe size={16} /> },
-        { value: "Web & Mobile", label: 'Web & Mobile Application', icon: <Code size={16} /> },
-        { value: 'Graphic Design', label: 'Graphic Design', icon: <Palette size={16} /> },
-        { value: 'Photography', label: 'Photography', icon: <Camera size={16} /> }
-    ]
-
-    const categoriesMini = [
-        { value: "All", label: "All Projects", icon: <Globe size={16} /> },
-        { value: "Web & Mobile", label: 'Web & Mobile Application', icon: <Code size={16} /> },
-        { value: 'Graphic Design', label: 'Graphic Design', icon: <Palette size={16} /> },
-        { value: 'Photography', label: 'Photography', icon: <Camera size={16} /> }
-    ]
 
     const filteredProjects = selectedCategory === 'All' ? projects : projects.filter(p => p.category === selectedCategory);
     const filteredMiniProjects = selectedCategoryMini === 'All' ? miniProjects : miniProjects.filter(p => p.category === selectedCategoryMini);
@@ -647,10 +627,10 @@ export default function PortfolioSection() {
                     className="text-center"
                 >
                     <div className='flex flex-col-reverse md:flex-row justify-between md:ml-10 items-center mt-20'>
-                        <h1 className={`text-[20px] md:text-[30px] ${isDarkMode ? "text-white" : "text-gray-600"} mb-4 text-[30px] font-semibold`}>Mini Projects</h1>
+                        <h1 className={`text-[20px] md:text-[30px] ${isDarkMode ? "text-white" : "text-gray-600"} mb-4 text-[30px] font-semibold`}>Workshops</h1>
 
                         <div className={`hidden md:block text-[15px] ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} mb-4`}>
-                            Showing {filteredMiniProjects.length} {filteredMiniProjects.length === 1 ? 'miniProjects' : 'miniProject'}
+                            Showing {filteredMiniProjects.length} {filteredMiniProjects.length === 1 ? 'workshops' : 'workshop'}
                             {selectedCategoryMini !== 'All' && (
                                 <span className="ml-1">in {selectedCategoryMiniData.label}</span>
                             )}

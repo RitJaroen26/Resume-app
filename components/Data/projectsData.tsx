@@ -50,6 +50,8 @@ export type MiniProject = {
     icon: JSX.Element;
 }
 
+
+
 export const projects: Project[] = [
     {
         id: 1,
@@ -186,4 +188,19 @@ export const miniProjects: MiniProject[] = [
         githubUrl: "https://github.com/RitJaroen26/basic-kanban-board",
         icon: <Globe size={24} />
     }
+]
+
+
+export const categories = [
+    { value: "All", label: "All Projects", icon: <Globe size={16} /> },
+    { value: "Web & Mobile", label: 'Web & Mobile Application', icon: <Code size={16} /> },
+    { value: 'Graphic Design', label: 'Graphic Design', icon: <Palette size={16} /> },
+    { value: 'Photography', label: 'Photography', icon: <Camera size={16} /> }
+]
+
+export const categoriesMini = [
+    { value: "All", label: "All Projects", icon: <Globe size={16} /> },
+    { value: "Web & Mobile", label: 'Web & Mobile Application', icon: <Code size={16} /> },
+    { value: 'Graphic Design', label: 'Graphic Design', icon: <Palette size={16} /> },
+    { value: 'Photography', label: 'Photography', icon: <Camera size={16} /> }
 ]

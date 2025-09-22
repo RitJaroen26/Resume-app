@@ -121,8 +121,8 @@ export default function Sidebar({ children }: SidebarProps) {
             id: "resume-section",
             hasDropdown: true,
             subMenu: [
-                { label: "Download Resume", labelThai: "ดาวน์โหลด Resume", fileName: "Pawarit_Resume.pdf" },
-                { label: "Download CV", labelThai: "ดาวน์โหลด CV", fileName: "Pawarit_CV.pdf" },
+                { label: "Download Resume", labelThai: "ดาวน์โหลด Resume", fileName: "Resume-Pawarit.pdf" },
+                { label: "Download CV", labelThai: "ดาวน์โหลด CV", fileName: "CV-Pawarit.pdf" },
             ],
         },
         {
@@ -410,14 +410,16 @@ export default function Sidebar({ children }: SidebarProps) {
                                                                 {item.subMenu ? (
                                                                     <div>
                                                                         {item.subMenu.map((sub, subIndex) => (
-                                                                            <button
+                                                                            <a
                                                                                 key={subIndex}
+                                                                                href={`/files/${sub.fileName}`}
+                                                                                download={sub.fileName}
                                                                                 onClick={() => console.log(`Downloading ${sub.fileName}`)}
                                                                                 className={`w-full cursor-pointer flex items-center justify-between px-3 py-2 text-sm ${isDarkMode ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"} rounded-lg transition-colors`}
                                                                             >
                                                                                 <span>{isThai ? sub.labelThai : sub.label}</span>
                                                                                 <Download size={14} />
-                                                                            </button>
+                                                                            </a>
                                                                         ))}
                                                                     </div>
                                                                 ) : (
@@ -464,13 +466,15 @@ export default function Sidebar({ children }: SidebarProps) {
                     )}
                 </AnimatePresence>
 
-                <div
-                    className="flex-1 transition-all duration-300 bg-gray-50"
-                    style={{ marginLeft: isMobile ? 0 : (isOpen ? 280 : 80) }}
+                <motion.div
+                    className="flex-1 bg-gray-50"
+                    animate={{ marginLeft: isMobile ? 0 : (isOpen ? 280 : 80) }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                    <div
-                        className={`${isDarkMode ? "bg-[#121212]" : "bg-white"} h-20 shadow-sm flex justify-between items-center px-6 fixed top-0 right-0 transition-all duration-300 z-30`}
-                        style={{ left: isMobile ? 0 : (isOpen ? 280 : 80) }}
+                    <motion.div
+                        className={`${isDarkMode ? "bg-[#121212]" : "bg-white"} h-20 shadow-sm flex justify-between items-center px-6 fixed top-0 right-0 z-30`}
+                        animate={{ left: isMobile ? 0 : (isOpen ? 280 : 80) }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                         <div className="flex items-center gap-4">
                             {isMobile && (
@@ -508,12 +512,12 @@ export default function Sidebar({ children }: SidebarProps) {
                                 <BsInstagram size={20} />
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     <div className="pt-16 h-full">
                         {children}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </SidebarContext.Provider>
     );

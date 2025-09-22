@@ -31,7 +31,7 @@ import {
     Heart,
     Award,
     BookOpen,
-    Zap
+    Zap,
 } from 'lucide-react';
 
 import { BiLogoVisualStudio } from 'react-icons/bi';
@@ -44,7 +44,7 @@ import {
 } from "react-icons/fi";
 
 export const tabs = [
-    { id: 'story', label: 'My Story', icon: <User size={20} /> },
+    { id: 'story', label: 'About', icon: <User size={20} /> },
     { id: 'journey', label: 'Journey', icon: <GraduationCap size={20} /> },
     { id: 'values', label: 'Skills', icon: <Heart size={20} /> }
 ];

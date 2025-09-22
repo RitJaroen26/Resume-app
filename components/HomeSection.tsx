@@ -125,19 +125,20 @@ export default function HomeSection() {
                         >
                             <button
                                 onClick={() => scrollToSection('portfolio-section')}
-                                className="group w-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 flex items-center gap-2"
+                                className="group cursor-pointer w-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 flex items-center gap-2"
                             >
                                 {isThai ? "ดูผลงาน" : "View My Work"}
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
 
-                            <button
-                                onClick={() => console.log('Download CV')}
-                                className={`group w-50 border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2`}
+                            <a
+                                href={`/files/CV-Pawarit.pdf`}
+                                download="CV-Pawarit.pdf"
+                                className={`group cursor-pointer w-50 border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2`}
                             >
                                 <Download size={20} />
                                 {isThai ? "ดาวน์โหลด CV" : "Download CV"}
-                            </button>
+                            </a>
                         </motion.div>
 
                         <motion.div
