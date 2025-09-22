@@ -140,10 +140,10 @@ const Footer = () => {
                             className="text-center mb-12"
                         >
                             <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${isDarkMode ? "text-white" : "text-gray-700"}`}>
-                                Let's Work <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Together</span>
+                                Let&apos;s Work <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Together</span>
                             </h2>
                             <p className={`text-xl ${isDarkMode ? "text-gray-300" : "text-gray-600"} max-w-2xl mx-auto`}>
-                                Ready to bring your ideas to life? I'm here to help you create amazing digital experiences.
+                                Ready to bring your ideas to life? I&apos;m here to help you create amazing digital experiences.
                             </p>
                         </motion.div>
 

@@ -46,7 +46,7 @@ export default function HomeSection() {
         return () => clearInterval(interval);
     }, []);
 
-    const scrollToSection = (sectionId: any) => {
+    const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
