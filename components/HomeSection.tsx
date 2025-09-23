@@ -62,7 +62,7 @@ export default function HomeSection() {
             </div>
 
             <div className={`relative z-10 container mx-auto ${isOpen ? "px-16" : "px-10"} py-20`}>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
@@ -78,9 +78,15 @@ export default function HomeSection() {
                             <p className={`text-lg font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                                 {isThai ? "สวัสดี ผมชื่อ" : "Hello, I'm"}
                             </p>
-                            <h1 className={`text-7xl md:text-5xl lg:text-6xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
+                            {/* <h1 className={`text-7xl md:text-5xl lg:text-6xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
                                 {isThai ? "ปวริศร์" : "Pawarit"}
                                 <span className={`hidden md:block ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                                    {isThai ? "เจริญพัฒนศิริ" : "Jaroenphatthanasiri"}
+                                </span>
+                            </h1> */}
+                            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
+                                {isThai ? "ปวริศร์" : "Pawarit"}
+                                <span className={`block sm:hidden ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                                     {isThai ? "เจริญพัฒนศิริ" : "Jaroenphatthanasiri"}
                                 </span>
                             </h1>
@@ -90,9 +96,9 @@ export default function HomeSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="h-16 -mt-10 md:-mt-0 flex items-center"
+                            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4"
                         >
-                            <span className={`text-2xl lg:text-3xl font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} mr-4`}>
+                            <span className={`text-2xl lg:text-3xl font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} sm:mr-4`}>
                                 {isThai ? "ผมเป็น" : "I'm a"}
                             </span>
                             <div className="relative">
@@ -115,18 +121,18 @@ export default function HomeSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
-                            className={`text-lg leading-relaxed text-center md:textleft w-70 md:w-full ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-lg`}
+                            className={`text-lg leading-relaxed text-center md:text-left w-70 sm:w-90 md:w-full ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-lg ml-0 sm:ml-25 md:ml-0`}
                         >
                             {isThai
-                            ? "ผมเป็นนักศึกษาและนักพัฒนาสาขาวิทยาการคอมพิวเตอร์ ผู้มีความหลงใหลในการพัฒนาซอฟต์แวร์และเทคโนโลยีผ่านความคิดสร้างสรรค์และการแก้ปัญหา โดยเปลี่ยนแนวคิดให้กลายเป็นประสบการณ์จริง"
-                            : "I'm Computer Science Student and Developer with a passion for developing software, technology through creativity and problem solving, turning ideas into practical experiences."}
+                                ? "ผมเป็นนักศึกษาและนักพัฒนาสาขาวิทยาการคอมพิวเตอร์ ผู้มีความหลงใหลในการพัฒนาซอฟต์แวร์และเทคโนโลยีผ่านความคิดสร้างสรรค์และการแก้ปัญหา โดยเปลี่ยนแนวคิดให้กลายเป็นประสบการณ์จริง"
+                                : "I'm Computer Science Student and Developer with a passion for developing software, technology through creativity and problem solving, turning ideas into practical experiences."}
                         </motion.p>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8 }}
-                            className="flex flex-col md:flex-row ml-10 sm:ml-20 md:ml-0 gap-4"
+                            className="flex flex-col md:flex-row gap-4 w-full sm:w-auto"
                         >
                             <button
                                 onClick={() => scrollToSection('portfolio-section')}

@@ -55,70 +55,26 @@ export type MiniProject = {
 export const projects: Project[] = [
     {
         id: 1,
-        title: "Food Ordering System",
+        title: "Personal Portfolio",
         category: "Web & Mobile",
         categoryName: "Web Application",
-        image: "/images/food-ordering.png",
-        technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-        date: "2024",
-        description: "I learned and experimented with creating a web application about food ordering system using React.js and Node.js. to build new skills in using frameworks.",
-        longDescription: "This comprehensive e-commerce platform features a modern React frontend with a responsive design, robust Node.js backend API, and MongoDB database. The platform includes user authentication, shopping cart functionality, secure payment processing through Stripe, order management, and an admin dashboard for inventory and order management. The application is optimized for performance and includes features like product search, filtering, and user reviews.",
+        image: "/images/portfolio.png",
+        technologies: ["Next.js", "React", "TypeScript", "TailwindCSS"],
+        date: "2025",
+        description: "A portfolio website designed and developed by myself, showcasing real work, skills and experience to serve as a sample of work for job search and freelance work.",
+        longDescription: "This website is an online portfolio I designed and developed myself. It's intended to serve as a platform for showcasing my work, skills, and experience in full-stack development and beyond. On this website, you'll find examples of my web development coding and past work, which honestly reflect my capabilities. Creating this website not only showcases my work, but also demonstrates my understanding of the real world, from planning and designing to development and customization for users.",
         features: [
-            "Secure user authentication and authorization",
-            "Shopping cart and checkout process",
-            "Payment integration with Stripe",
-            "Admin dashboard for product management",
-            "Order tracking and history",
+            "Includes all examples of work that has been done.",
+            "Reflects the owner's skills and working style",
+            "This website is designed and developed by us.",
+            "Employers can conveniently view their work on any device.",
+            "Visitors can easily navigate to various works or information.",
             "Responsive design for all devices"
         ],
         demoUrl: "https://leafmeat-food.onrender.com/",
-        githubUrl: "https://github.com/RitJaroen26/LeafMeat",
+        githubUrl: "https://github.com/RitJaroen26/Resume-app",
         icon: <Globe size={24} />
     },
-    {
-        id: 2,
-        title: "Travel Recommendation Mobile App",
-        category: "Web & Mobile",
-        categoryName: "Mobile Application",
-        image: "/images/TravelApp.png",
-        technologies: ["React Native", "Expo"],
-        date: "2024",
-        description: "Develop a mobile app with React Native that introduces the location of Phra Pathom Chedi Temple in Nakhon Pathom.",
-        longDescription: "A comprehensive task management mobile application built with React Native, featuring real-time synchronization across devices using Firebase. The app includes project organization, team collaboration, deadline tracking, and push notifications. Users can create projects, assign tasks to team members, set priorities, and track progress with intuitive charts and statistics.",
-        features: [
-            "Real-time task synchronization",
-            "Team collaboration and assignment",
-            "Project organization and categorization",
-            "Deadline tracking with notifications",
-            "Progress analytics and reporting",
-            "Offline functionality with sync"
-        ],
-        demoUrl: "#",
-        githubUrl: "https://github.com/RitJaroen26/Travel2",
-        icon: <Smartphone size={24} />
-    },
-    {
-        id: 3,
-        title: "Basic Kanban Boards",
-        category: "Web & Mobile",
-        categoryName: "Web Application",
-        image: "/images/Kanban1.png",
-        technologies: ["React"],
-        date: "2023",
-        description: "Development a kanban boards with design and critical thinking.",
-        longDescription: "An interactive weather dashboard built with Vue.js that provides current weather conditions, 5-day forecasts, and historical weather data visualization. The application integrates with the OpenWeather API to fetch real-time weather data and uses Chart.js for beautiful data visualization. Features include geolocation support, multiple city tracking, and weather alerts.",
-        features: [
-            "Real-time weather data from OpenWeather API",
-            "5-day weather forecast",
-            "Interactive charts and data visualization",
-            "Geolocation-based weather detection",
-            "Multiple city weather tracking",
-            "Weather alerts and notifications"
-        ],
-        demoUrl: "https://basic-kanban-board.vercel.app/",
-        githubUrl: "https://github.com/RitJaroen26/basic-kanban-board",
-        icon: <Globe size={24} />
-    }
 ];
 
 export const miniProjects: MiniProject[] = [
