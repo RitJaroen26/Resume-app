@@ -243,13 +243,15 @@ export default function Sidebar({ children }: SidebarProps) {
                         <motion.div
                             // initial={isMobile ? { x: -280 } : { width: isOpen ? 280 : 80 }}
                             // animate={isMobile ? { x: 0 } : { width: isOpen ? 280 : 80 }}
-                            exit={isMobile ? { x: -280 } : undefined}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            // exit={isMobile ? { x: -280 } : undefined}
+                            // transition={{ duration: 0.3, ease: "easeInOut" }}
                             // className={`h-screen fixed left-0 top-0 shadow-xl ${isMobile ? 'z-50' : 'z-40'} ${isDarkMode ? "bg-[#121212]" : "bg-white"} overflow-visible`}
                             // style={{ width: isMobile ? 280 : (isOpen ? 280 : 80) }}
-                            initial={{ x: isMobile ? -280 : 0 }}
-                            animate={{ x: 0 }}
-                            className={`h-screen fixed left-0 top-0 shadow-xl z-50 ${isDarkMode ? "bg-[#121212]" : "bg-white"}`}
+                            initial={isMobile ? { x: -280 } : { width: isOpen ? 280 : 80 }}
+                            animate={isMobile ? { x: 0 } : { width: isOpen ? 280 : 80 }}
+                            exit={isMobile ? { x: -280 } : undefined}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className={`h-screen fixed top-0 left-0 shadow-xl ${isMobile ? 'z-50' : 'z-40'} ${isDarkMode ? "bg-[#121212]" : "bg-white"} overflow-visible`}
                             style={{ width: isMobile ? 280 : (isOpen ? 280 : 80) }}
                             onClick={(e) => e.stopPropagation()}
                         >
