@@ -25,6 +25,13 @@
   /* outline: 1px solid red; */
 }
 
+:root {
+  --app-height: 100vh;
+}
+
+html, body, #__next, .h-screen {
+  height: var(--app-height);
+}
 
 /* body {
   background: var(--background);

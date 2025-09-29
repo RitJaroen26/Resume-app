@@ -161,7 +161,7 @@ export default function Sidebar({ children }: SidebarProps) {
             labelThai: "การศึกษา",
             id: "education-section",
             hasDropdown: true,
-            contentClass: `${isOpen ? "-translate-y-80" : "-translate-y-50"}`,  
+            contentClass: `${isOpen ? "-translate-y-80" : "-translate-y-50"}`,
             content: (
                 <div className="p-4 min-w-[400px]">
                     <h3 className={`text-lg font-semibold ${isDarkMode ? "text-white" : "text-gray-800"} mb-6`}>Education</h3>
@@ -214,6 +214,15 @@ export default function Sidebar({ children }: SidebarProps) {
         };
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    useEffect(() => {
+        const setAppHeight = () => {
+            document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+        };
+        setAppHeight();
+        window.addEventListener('resize', setAppHeight);
+        return () => window.removeEventListener('resize', setAppHeight);
     }, []);
 
     return (
