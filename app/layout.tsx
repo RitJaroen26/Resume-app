@@ -27,6 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta
+          name="viewport"
+          content="width=1280, initial-scale=0.7, maximum-scale=0.7, minimum-scale=0.7, user-scalable=no"
+        />
+      </head>
       <body
         className={`${inter.variable} font-sans`}
       >
