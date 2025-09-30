@@ -125,36 +125,36 @@ export default function Sidebar({ children }: SidebarProps) {
                 { label: "Download CV", labelThai: "ดาวน์โหลด CV", fileName: "CV-Pawarit.pdf" },
             ],
         },
-        {
-            icon: <User size={20} />,
-            label: "Profile",
-            labelThai: "โปรไฟล์",
-            id: "profile-section",
-            hasDropdown: true,
-            content: (
-                <div className="p-4 min-w-[280px]">
-                    <div className="flex items-center space-x-3 mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                            P
-                        </div>
-                        <div>
-                            <p className="font-semibold text-gray-800">Pawarit Jaroenphatthanasiri</p>
-                            <p className="text-sm text-gray-500">pawarit-j@rmutp.ac.th</p>
-                        </div>
-                    </div>
-                    <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                            <span className="text-gray-600">Phone:</span>
-                            <span className="text-gray-800">099-999-9999</span>
-                        </div>
-                        <div className="flex justify-between">
-                            <span className="text-gray-600">Role:</span>
-                            <span className="text-gray-800">Developer</span>
-                        </div>
-                    </div>
-                </div>
-            ),
-        },
+        // {
+        //     icon: <User size={20} />,
+        //     label: "Profile",
+        //     labelThai: "โปรไฟล์",
+        //     id: "profile-section",
+        //     hasDropdown: true,
+        //     content: (
+        //         <div className="p-4 min-w-[280px]">
+        //             <div className="flex items-center space-x-3 mb-4">
+        //                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+        //                     P
+        //                 </div>
+        //                 <div>
+        //                     <p className="font-semibold text-gray-800">Pawarit Jaroenphatthanasiri</p>
+        //                     <p className="text-sm text-gray-500">pawarit-j@rmutp.ac.th</p>
+        //                 </div>
+        //             </div>
+        //             <div className="space-y-2 text-sm">
+        //                 <div className="flex justify-between">
+        //                     <span className="text-gray-600">Phone:</span>
+        //                     <span className="text-gray-800">099-999-9999</span>
+        //                 </div>
+        //                 <div className="flex justify-between">
+        //                     <span className="text-gray-600">Role:</span>
+        //                     <span className="text-gray-800">Developer</span>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     ),
+        // },
         {
             icon: <BookOpen size={20} />,
             label: "Education",
@@ -482,7 +482,7 @@ export default function Sidebar({ children }: SidebarProps) {
                 </AnimatePresence>
 
                 <motion.div
-                    className="flex-1 bg-gray-50"
+                    className="flex-1 bg-gray-50 max-w-full"
                     animate={{ marginLeft: isMobile ? 0 : (isOpen ? 280 : 80) }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
