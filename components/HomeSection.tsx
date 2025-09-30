@@ -88,7 +88,7 @@ export default function HomeSection() {
                             <p className={`text-lg font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                                 {isThai ? "สวัสดี ผมชื่อ" : "Hello, I'm"}
                             </p>
-                            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
+                            <h1 className={`text-6xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
                                 {isThai ? "ปวริศร์" : "Pawarit"}
                                 <span className={`hidden md:block ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-lg sm:text-xl md:text-2xl`}>
                                     {isThai ? "เจริญพัฒนศิริ" : "Jaroenphatthanasiri"}
@@ -142,7 +142,7 @@ export default function HomeSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8 }}
-                            className="flex flex-col md:flex-row gap-4 w-full pl-25 sm:pl-40 md:pl-0 sm:w-auto"
+                            className="flex flex-col md:flex-row gap-4 w-full pl-10 sm:pl-40 md:pl-0 sm:w-auto"
                         >
                             <button
                                 onClick={() => scrollToSection('portfolio-section')}
@@ -166,7 +166,7 @@ export default function HomeSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.0 }}
-                            className="flex ml-35 md:ml-0 gap-4 pt-4"
+                            className="flex pl-20 md:pl-0 gap-4 pt-4"
                         >
                             <a
                                 href="https://github.com/RitJaroen26"
@@ -206,7 +206,7 @@ export default function HomeSection() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.6 }}
-                    className="md:mt-20 ml-15 md:ml-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
                     {stats.map((stat, index) => (
                         <motion.div
@@ -230,7 +230,7 @@ export default function HomeSection() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2.5 }}
-                    className="absolute bottom-8 left-60 md:left-1/2 transform -translate-x-1/2"
+                    className="absolute bottom-8 left-45 md:left-1/2 transform -translate-x-1/2"
                 >
                     <motion.button
                         onClick={() => scrollToSection('about-section')}
