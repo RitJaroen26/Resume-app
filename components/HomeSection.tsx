@@ -23,6 +23,16 @@ export default function HomeSection() {
     const { isOpen, isDarkMode, isThai } = useSidebar();
     const [currentRole, setCurrentRole] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1024); 
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const roles = [
         "Full Stack Developer",
