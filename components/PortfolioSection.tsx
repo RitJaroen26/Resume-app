@@ -362,7 +362,7 @@ export default function PortfolioSection() {
                             </>
                         )}
 
-                        <div className="flex justify-center items-center min-h-[550px] md:min-h-[600px] px-12 md:px-16">
+                        <div className="flex justify-center items-center min-h-[550px] md:min-h-[600px] px-2 md:px-16">
                             <div className={`${isMobile ? 'w-full max-w-sm' : 'flex gap-6 w-full max-w-6xl'}`}>
                                 {getVisibleProjects().map((project, index) => (
                                     <motion.div
@@ -741,21 +741,21 @@ export default function PortfolioSection() {
                             <>
                                 <button
                                     onClick={prevSlideMiniProject}
-                                    className={`absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-20 p-2 md:p-3 rounded-full ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-white hover:bg-gray-50 text-gray-800'} shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer`}
+                                    className={`absolute -left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-20 p-2 md:p-3 rounded-full ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-white hover:bg-gray-50 text-gray-800'} shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer`}
                                 >
                                     <ChevronLeft size={isMobile ? 20 : 24} />
                                 </button>
 
                                 <button
                                     onClick={nextSlideMiniProject}
-                                    className={`absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-20 p-2 md:p-3 rounded-full ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-white hover:bg-gray-50 text-gray-800'} shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer`}
+                                    className={`absolute -right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-20 p-2 md:p-3 rounded-full ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-white hover:bg-gray-50 text-gray-800'} shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer`}
                                 >
                                     <ChevronRight size={isMobile ? 20 : 24} />
                                 </button>
                             </>
                         )}
 
-                        <div className="flex justify-center items-center min-h-[550px] md:min-h-[600px] px-12 md:px-16">
+                        <div className="flex justify-center items-center min-h-[550px] md:min-h-[600px] px-2 md:px-16">
                             <div className={`${isMobile ? 'w-full max-w-sm' : 'flex gap-6 w-full max-w-6xl'}`}>
                                 {getVisibleMiniProjects().map((project, index) => (
                                     <motion.div
