@@ -65,7 +65,7 @@ export default function AboutSection() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
                     transition={{ duration: 0.6 }}
-                    className="ml-30 md:ml-0 md:text-center mb-16"
+                    className="text-center mb-16"
                 >
                     <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                         {isThai ? "เกี่ยวกับ" : "About"} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{isThai ? "ฉัน" : "Me"}</span>
