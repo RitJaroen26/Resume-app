@@ -88,7 +88,7 @@ export default function HomeSection() {
                             <p className={`text-lg font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                                 {isThai ? "สวัสดี ผมชื่อ" : "Hello, I'm"}
                             </p>
-                            <h1 className={`text-6xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
+                            <h1 className={`text-center md:text-left text-6xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
                                 {isThai ? "ปวริศร์" : "Pawarit"}
                                 <span className={`hidden md:block ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-lg sm:text-xl md:text-2xl`}>
                                     {isThai ? "เจริญพัฒนศิริ" : "Jaroenphatthanasiri"}
@@ -106,7 +106,7 @@ export default function HomeSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4"
+                            className="flex flex-col sm:flex-row items-center justify-center md:justify-start lg:justify-start gap-2 sm:gap-4"
                         >
                             <span className={`text-2xl lg:text-3xl font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} sm:mr-4`}>
                                 {isThai ? "ผมเป็น" : "I'm a"}
