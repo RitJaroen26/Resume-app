@@ -206,7 +206,7 @@ export default function HomeSection() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.6 }}
-                    className="md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="mx-auto md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
                     {stats.map((stat, index) => (
                         <motion.div

@@ -25,6 +25,7 @@ export default function AboutSection() {
     const [activeTab, setActiveTab] = useState('story');
     const [isVisible, setIsVisible] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -59,7 +60,7 @@ export default function AboutSection() {
                 <div className={`absolute bottom-1/4 left-20 w-80 h-80 ${isDarkMode ? 'bg-blue-500/5' : 'bg-blue-500/10'} rounded-full blur-3xl`} />
             </div>
 
-            <div className={`relative z-10 container mx-auto ${isOpen ? "px-16" : "px-10"} `}>
+            <div className={`relative z-10 w-full ${isOpen ? "px-16" : "px-0 md:px-12"} `}>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
@@ -71,14 +72,14 @@ export default function AboutSection() {
                     </h2>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -30 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="space-y-8"
                     >
-                        <div className={`w-90 md:w-full md:h-full ml-5 md:ml-0 ${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-sm ${isDarkMode ? 'border-gray-700' : 'border-gray-100'}`}>
+                        <div className={`w-80 sm:w-180 md:w-full md:h-full ml-5 md:ml-0 ${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-sm ${isDarkMode ? 'border-gray-700' : 'border-gray-100'}`}>
                             <div className="text-center mb-6">
                                 <div className="w-32 h-32 mx-auto mb-4 rounded-full flex items-center justify-center shadow-lg">
                                     <Image src="/images/image2.jpg" alt="" className='rounded-full' width={128} height={128} />
@@ -135,7 +136,7 @@ export default function AboutSection() {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="lg:col-span-2"
                     >
-                        <div className="flex flex-row gap-2 mb-8">
+                        <div className="flex flex-row justify-center md:justify-start gap-2 mb-8">
                             {tabs.map((tab) => (
                                 <button
                                     key={tab.id}
@@ -153,7 +154,7 @@ export default function AboutSection() {
                             ))}
                         </div>
 
-                        <div className={`w-100 md:w-full ${isDarkMode ? 'bg-[#282828]' : 'bg-white'} backdrop-blur-sm rounded-2xl p-8 shadow-xl ${isDarkMode ? 'border-gray-700' : 'border-gray-100'} min-h-[500px]`}>
+                        <div className={`w-90 md:w-full ${!isDarkMode ? 'bg-white' : ''} backdrop-blur-sm rounded-2xl p-8 shadow-xl ${isDarkMode ? 'border-gray-700' : 'border-gray-100'} min-h-[500px]`}>
                             <AnimatePresence mode="wait">
                                 {activeTab === 'story' && (
                                     <motion.div

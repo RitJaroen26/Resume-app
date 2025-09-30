@@ -317,8 +317,12 @@ const Footer = () => {
                             transition={{ duration: 0.6, delay: 1.0 }}
                             className="flex flex-col md:flex-row justify-between items-center gap-4"
                         >
-                            <p className={`${isDarkMode ? "text-gray-400" : "text-gray-500"} text-sm`}>
+                            <p className={`hidden md:block ${isDarkMode ? "text-gray-400" : "text-gray-500"} text-sm`}>
                                 © 2025 Pawarit Jaroenphatthanasiri. All rights reserved.
+                            </p>
+                            <p className={`block md:hidden text-center ${isDarkMode ? "text-gray-400" : "text-gray-500"} text-sm`}>
+                                © 2025 Pawarit Jaroenphatthanasiri.<br />
+                                All rights reserved.
                             </p>
                             <div className={`flex items-center gap-6 text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
                                 <button className="hover:text-white transition-colors">Privacy Policy</button>
