@@ -21,7 +21,8 @@ import {
     // Palette,
     // Camera,
     ChevronDown,
-    Check
+    Check,
+    Search
 } from 'lucide-react';
 
 export default function PortfolioSection() {
@@ -428,7 +429,7 @@ export default function PortfolioSection() {
                                                 </h3>
 
                                                 <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm mb-4 line-clamp-3`}>
-                                                    {project.description}
+                                                    {isThai ? project.descriptionTh : project.description}
                                                 </p>
 
                                                 <div className="flex flex-wrap gap-2 mb-6">
@@ -453,7 +454,7 @@ export default function PortfolioSection() {
                                                         className="flex-1 cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 ease-out hover:shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02] flex items-center justify-center gap-2 group-hover:from-blue-700 group-hover:to-purple-700"
                                                     >
                                                         <Eye size={16} className="transition-transform duration-200 group-hover:scale-110" />
-                                                        Details
+                                                        {isThai ? "รายละเอียด" : "Details"}
                                                     </button>
                                                     <button
                                                         className={`p-2 cursor-pointer rounded-lg transition-all duration-300 ease-out hover:scale-110 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600 text-gray-300' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
@@ -492,14 +493,16 @@ export default function PortfolioSection() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center py-20"
                     >
-                        <div className={`text-6xl mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
-                            🔍
+                        <div className="flex gap-2 items-center justify-center">
+                            <div className={`text-6xl ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                                <Search size={18} strokeWidth={2} />
+                            </div>
+                            <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                                {isThai ? "ไม่พบผลงาน" : "No projects found"}
+                            </h3>
                         </div>
-                        <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                            No projects found
-                        </h3>
                         <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                            Try selecting a different category to see more projects.
+                            {isThai ? "ลองเลือกหมวดหมู่อื่นเพื่อดูโครงการเพิ่มเติม" : "Try selecting a different category to see more projects."}
                         </p>
                     </motion.div>
                 )}
@@ -530,7 +533,7 @@ export default function PortfolioSection() {
                                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm">
                                         <span className={`flex items-center gap-1 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                                             <Tag size={14} />
-                                            {selectedProject.category}
+                                            {isThai ? selectedProject.categorieNameTh : selectedProject.categoryName}
                                         </span>
                                         <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                                             <Calendar size={14} />
@@ -565,30 +568,38 @@ export default function PortfolioSection() {
 
                                 <div className="mb-6">
                                     <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        About This Project
+                                        {isThai ? "เกี่ยวกับงาน" : "About This Project"}
                                     </h3>
                                     <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-sm md:text-base`}>
-                                        {selectedProject.longDescription}
+                                        {isThai ? selectedProject.longDescriptionTh : selectedProject.longDescription}
                                     </p>
                                 </div>
 
                                 <div className="mb-6">
                                     <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        Key Features
+                                        {isThai ? "คุณสมบัติที่สำคัญ" : "Key Features"}
                                     </h3>
                                     <div className="grid gap-2 md:gap-3">
-                                        {selectedProject.features.map((feature, index) => (
-                                            <div key={index} className={`flex items-start gap-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm md:text-base`}>
-                                                <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 flex-shrink-0" />
-                                                <span className="leading-relaxed">{feature}</span>
-                                            </div>
-                                        ))}
+                                        {isThai ?
+                                            selectedProject.featuresTh.map((featureth, index) => (
+                                                <div key={index} className={`flex items-start gap-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm md:text-base`}>
+                                                    <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 flex-shrink-0" />
+                                                    <span className="leading-relaxed">{featureth}</span>
+                                                </div>
+                                            ))
+                                            : selectedProject.features.map((feature, index) => (
+                                                <div key={index} className={`flex items-start gap-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm md:text-base`}>
+                                                    <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 flex-shrink-0" />
+                                                    <span className="leading-relaxed">{feature}</span>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
                                 </div>
 
                                 <div className="mb-6">
                                     <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        Technologies Used
+                                        {isThai ? "เทคโนโลยีที่ใช้" : "Technologies Used"}
                                     </h3>
                                     <div className="flex flex-wrap gap-2 md:gap-3">
                                         {selectedProject.technologies.map((tech, index) => (
@@ -812,7 +823,7 @@ export default function PortfolioSection() {
                                                 <div className="flex items-center gap-2 mb-2">
                                                     <Tag size={16} className={isDarkMode ? 'text-blue-400' : 'text-blue-600'} />
                                                     <span className={`text-sm font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
-                                                        {project.categoryName}
+                                                        {isThai ? project.categorieNameTh : project.categoryName}
                                                     </span>
                                                 </div>
 
@@ -821,7 +832,7 @@ export default function PortfolioSection() {
                                                 </h3>
 
                                                 <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm mb-4 line-clamp-3`}>
-                                                    {project.description}
+                                                    {isThai ? project.descriptionTh : project.description}
                                                 </p>
 
                                                 <div className="flex flex-wrap gap-2 mb-6">
@@ -846,7 +857,7 @@ export default function PortfolioSection() {
                                                         className="flex-1 cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 ease-out hover:shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02] flex items-center justify-center gap-2 group-hover:from-blue-700 group-hover:to-purple-700"
                                                     >
                                                         <Eye size={16} className="transition-transform duration-200 group-hover:scale-110" />
-                                                        Details
+                                                        {isThai ? "รายละเอียด" : "Details"}
                                                     </button>
                                                     <button
                                                         className={`p-2 cursor-pointer rounded-lg transition-all duration-300 ease-out hover:scale-110 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600 text-gray-300' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
@@ -885,14 +896,16 @@ export default function PortfolioSection() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center py-20"
                     >
-                        <div className={`text-6xl mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
-                            🔍
+                        <div className="flex gap-2 items-center justify-center">
+                            <div className={`text-6xl ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                                <Search size={18} strokeWidth={2} />
+                            </div>
+                            <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                                {isThai ? "ไม่พบเวิร์คช็อป" : "No workshop found"}
+                            </h3>
                         </div>
-                        <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                            No projects found
-                        </h3>
                         <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                            Try selecting a different category to see more projects.
+                            {isThai ? "ลองเลือกหมวดหมู่อื่นเพื่อดูเวิร์คช็อปเพิ่มเติม" : "Try selecting a different category to see more projects."}
                         </p>
                     </motion.div>
                 )}
@@ -923,7 +936,7 @@ export default function PortfolioSection() {
                                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm">
                                         <span className={`flex items-center gap-1 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                                             <Tag size={14} />
-                                            {selectedMiniProject.category}
+                                            {isThai ? selectedMiniProject.categorieNameTh : selectedMiniProject.categoryName}
                                         </span>
                                         <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                                             <Calendar size={14} />
@@ -958,30 +971,38 @@ export default function PortfolioSection() {
 
                                 <div className="mb-6">
                                     <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        About This Project
+                                        {isThai ? "เกี่ยวกับงาน" : "About This Project"}
                                     </h3>
                                     <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-sm md:text-base`}>
-                                        {selectedMiniProject.longDescription}
+                                        {isThai ? selectedMiniProject.longDescriptionTh : selectedMiniProject.longDescription}
                                     </p>
                                 </div>
 
                                 <div className="mb-6">
                                     <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        Key Features
+                                        {isThai ? "คุณสมบัติหลัก" : "Key Features"}
                                     </h3>
                                     <div className="grid gap-2 md:gap-3">
-                                        {selectedMiniProject.features.map((feature, index) => (
-                                            <div key={index} className={`flex items-start gap-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm md:text-base`}>
-                                                <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 flex-shrink-0" />
-                                                <span className="leading-relaxed">{feature}</span>
-                                            </div>
-                                        ))}
+                                        {isThai ?
+                                            selectedMiniProject.featuresTh.map((featureth, index) => (
+                                                <div key={index} className={`flex items-start gap-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm md:text-base`}>
+                                                    <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 flex-shrink-0" />
+                                                    <span className="leading-relaxed">{featureth}</span>
+                                                </div>
+                                            ))
+                                            : selectedMiniProject.features.map((feature, index) => (
+                                                <div key={index} className={`flex items-start gap-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm md:text-base`}>
+                                                    <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 flex-shrink-0" />
+                                                    <span className="leading-relaxed">{feature}</span>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
                                 </div>
 
                                 <div className="mb-6">
                                     <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        Technologies Used
+                                        {isThai ? "เทคโนโลยีที่ใช้" : "Technologies Used"}
                                     </h3>
                                     <div className="flex flex-wrap gap-2 md:gap-3">
                                         {selectedMiniProject.technologies.map((tech, index) => (

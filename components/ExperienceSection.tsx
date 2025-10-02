@@ -30,7 +30,8 @@ import {
     Star,
     MapPin,
     Clock,
-    Building
+    Building,
+    Search
 } from 'lucide-react';
 
 
@@ -334,12 +335,14 @@ export default function ExperienceSection() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center py-20"
                     >
-                        <div className={`text-6xl mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
-                            🔍
+                        <div className="flex gap-2 items-center justify-center">
+                            <div className={`text-6xl ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
+                                <Search size={18} strokeWidth={2} />
+                            </div>
+                            <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                                No projects found
+                            </h3>
                         </div>
-                        <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                            No projects found
-                        </h3>
                         <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                             Try selecting a different category to see more projects.
                         </p>
