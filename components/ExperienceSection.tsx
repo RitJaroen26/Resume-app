@@ -226,7 +226,7 @@ export default function ExperienceSection() {
                                                             className="w-full h-full object-cover"
                                                             fill
                                                             style={{ objectFit: 'cover' }}
-                                                            
+
                                                         />
                                                     ) : (
                                                         <div className="flex items-center justify-center h-full">
@@ -361,39 +361,37 @@ export default function ExperienceSection() {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className={`${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto`}
+                            className={`${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-2xl p-4 md:p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto`}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <div className="flex justify-between items-start mb-6">
+                            <div className="flex justify-between items-start mb-6 flex-shrink-0">
                                 <div>
                                     <div className="flex items-center gap-3 mb-2">
-                                        <div className={`w-12 h-12 bg-gradient-to-r ${selectedExperience.color} rounded-lg flex items-center justify-center text-white`}>
-                                            {selectedExperience.icon}
-                                        </div>
-                                        <div>
-                                            <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                                        <div className="min-w-0 flex-1 mr-4">
+                                            <h2 className={`text-2xl md:text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                                                 {selectedExperience.title}
                                             </h2>
                                             <p className={`${getTypeColor(selectedExperience.type)} font-medium`}>
                                                 {selectedExperience.organization}
                                             </p>
+                                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm mt-2">
+                                                <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                                    <MapPin size={14} />
+                                                    {selectedExperience.location}
+                                                </span>
+                                                <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                                    <Calendar size={14} />
+                                                    {selectedExperience.startDate} - {selectedExperience.endDate}
+                                                </span>
+                                                <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                                    <Clock size={14} />
+                                                    {selectedExperience.duration}
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center gap-6 text-sm">
-                                        <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                                            <MapPin size={14} />
-                                            {selectedExperience.location}
-                                        </span>
-                                        <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                                            <Calendar size={14} />
-                                            {selectedExperience.startDate} - {selectedExperience.endDate}
-                                        </span>
-                                        <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                                            <Clock size={14} />
-                                            {selectedExperience.duration}
-                                        </span>
-                                    </div>
+
                                 </div>
                                 <button
                                     onClick={closeExperienceDetails}
@@ -403,72 +401,74 @@ export default function ExperienceSection() {
                                 </button>
                             </div>
 
-                            <div className={`relative h-48 md:h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-6 flex items-center justify-center overflow-hidden`}>
-                                {selectedExperience.image ? (
-                                    <Image
-                                        src={selectedExperience.image}
-                                        alt={selectedExperience.title}
-                                        className="w-full h-full object-cover"
-                                        fill
-                                        style={{ objectFit: 'cover' }}    
-                                    />
-                                ) : (
-                                    <div className="text-white text-6xl">
-                                        {selectedExperience.icon}
+                            <div className="flex-1">
+                                <div className={`relative h-48 md:h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-6 flex items-center justify-center overflow-hidden`}>
+                                    {selectedExperience.image ? (
+                                        <Image
+                                            src={selectedExperience.image}
+                                            alt={selectedExperience.title}
+                                            className="w-full h-full object-cover"
+                                            fill
+                                            style={{ objectFit: 'cover' }}
+                                        />
+                                    ) : (
+                                        <div className="text-white text-6xl">
+                                            {selectedExperience.icon}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="mb-6">
+                                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
+                                        About This Role
+                                    </h3>
+                                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed w-auto`}>
+                                        {selectedExperience.longDescription}uto
+                                    </p>
+                                </div>
+
+                                <div className="mb-6">
+                                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
+                                        Key Responsibilities
+                                    </h3>
+                                    <div className="grid md:grid-cols-1 gap-2">
+                                        {selectedExperience.responsibilities.map((responsibility, index) => (
+                                            <div key={index} className={`flex items-start gap-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                                                <ChevronRight size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+                                                <span>{responsibility}</span>
+                                            </div>
+                                        ))}
                                     </div>
-                                )}
-                            </div>
-
-                            <div className="mb-6">
-                                <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                    About This Role
-                                </h3>
-                                <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed w-auto`}>
-                                    {selectedExperience.longDescription}uto
-                                </p>
-                            </div>
-
-                            <div className="mb-6">
-                                <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                    Key Responsibilities
-                                </h3>
-                                <div className="grid md:grid-cols-1 gap-2">
-                                    {selectedExperience.responsibilities.map((responsibility, index) => (
-                                        <div key={index} className={`flex items-start gap-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                                            <ChevronRight size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                                            <span>{responsibility}</span>
-                                        </div>
-                                    ))}
                                 </div>
-                            </div>
 
-                            <div className="mb-6">
-                                <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                    Technologies & Tools
-                                </h3>
-                                <div className="flex flex-wrap gap-3">
-                                    {selectedExperience.technologies.map((tech, index) => (
-                                        <span
-                                            key={index}
-                                            className={`px-4 py-2 rounded-lg font-medium ${isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
+                                <div className="mb-6">
+                                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
+                                        Technologies & Tools
+                                    </h3>
+                                    <div className="flex flex-wrap gap-3">
+                                        {selectedExperience.technologies.map((tech, index) => (
+                                            <span
+                                                key={index}
+                                                className={`px-4 py-2 rounded-lg font-medium ${isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className="mb-6">
-                                <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                    Key Achievements
-                                </h3>
-                                <div className="space-y-2">
-                                    {selectedExperience.achievements.map((achievement, index) => (
-                                        <div key={index} className={`flex items-start gap-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                                            <Star size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-yellow-400' : 'text-yellow-600'}`} />
-                                            <span>{achievement}</span>
-                                        </div>
-                                    ))}
+                                <div className="mb-6">
+                                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
+                                        Key Achievements
+                                    </h3>
+                                    <div className="space-y-2">
+                                        {selectedExperience.achievements.map((achievement, index) => (
+                                            <div key={index} className={`flex items-start gap-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                                                <Star size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-yellow-400' : 'text-yellow-600'}`} />
+                                                <span>{achievement}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
