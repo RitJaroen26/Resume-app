@@ -161,12 +161,11 @@ export default function Sidebar({ children }: SidebarProps) {
                     <h3 className={`text-lg font-semibold ${isDarkMode ? "text-white" : "text-gray-800"} mb-6`}>Education</h3>
 
                     <div className={`relative space-y-6`}>
-
                         <div className={`relative ${isMobile ? "pl-0" : "pl-6"}`}>
                             <span className={`${isMobile ? "hidden" : "block"} absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full`}></span>
-                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 p-3" : "w-full p-4"} rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 sm:w-auto p-3" : "w-full p-4"} rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2018 - 2022</p>
-                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50" : "w-70"}`}>Sarasas Witaed Rangsit School</h4>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50 sm:w-auto" : "w-70"}`}>Sarasas Witaed Rangsit School</h4>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
                                     High School Degree
                                 </p>
@@ -175,9 +174,9 @@ export default function Sidebar({ children }: SidebarProps) {
 
                         <div className={`relative ${isMobile ? "pl-0" : "pl-6"}`}>
                             <span className={`${isMobile ? "hidden" : "block"} absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full`}></span>
-                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 p-3" : "w-full p-4"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 sm:w-auto p-3" : "w-full p-4"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2022 - 2025</p>
-                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50" : "w-70"}`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50 sm:w-auto" : "w-70"}`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
                                     Bachelor&apos;s Degree
                                 </p>
@@ -186,9 +185,9 @@ export default function Sidebar({ children }: SidebarProps) {
 
                         <div className={`relative ${isMobile ? "pl-0" : "pl-6"}`}>
                             <span className={`${isMobile ? "hidden" : "block"} absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full`}></span>
-                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 p-3" : "w-full p-4"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 sm:w-auto p-3" : "w-full p-4"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2018 - 2022</p>
-                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50" : "w-70"}`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50 sm:w-auto" : "w-70"}`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
                                     Bachelor&apos;s Degree
                                 </p>
@@ -237,12 +236,6 @@ export default function Sidebar({ children }: SidebarProps) {
                 <AnimatePresence>
                     {(isMobile ? isOpen : true) && (
                         <motion.div
-                            // initial={isMobile ? { x: -280 } : { width: isOpen ? 280 : 80 }}
-                            // animate={isMobile ? { x: 0 } : { width: isOpen ? 280 : 80 }}
-                            // exit={isMobile ? { x: -280 } : undefined}
-                            // transition={{ duration: 0.3, ease: "easeInOut" }}
-                            // className={`h-screen fixed left-0 top-0 shadow-xl ${isMobile ? 'z-50' : 'z-40'} ${isDarkMode ? "bg-[#121212]" : "bg-white"} overflow-visible`}
-                            // style={{ width: isMobile ? 280 : (isOpen ? 280 : 80) }}
                             initial={isMobile ? { x: -280 } : { width: isOpen ? 280 : 80 }}
                             animate={isMobile ? { x: 0 } : { width: isOpen ? 280 : 80 }}
                             exit={isMobile ? { x: -280 } : undefined}
