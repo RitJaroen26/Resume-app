@@ -25,6 +25,23 @@ interface SidebarProps {
     children: React.ReactNode;
 }
 
+interface SubMenuIitem {
+    label: string;
+    labelThai: string;
+    fileName: string;
+}
+
+interface InfoItem {
+    icon: React.ReactNode;
+    label: string;
+    labelThai: string;
+    id: string;
+    hasDropdown?: boolean;
+    subMenu?: SubMenuIitem[];
+    content?: React.ReactNode;
+    contentClass?: string;
+}
+
 export default function Sidebar({ children }: SidebarProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -33,6 +50,7 @@ export default function Sidebar({ children }: SidebarProps) {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const dropdownRef = useRef<HTMLDivElement | null>(null);
     const [isThai, setIsThai] = useState(false);
+    const [mobilePopupContent, setMobilePopupContent] = useState<React.ReactNode | null>(null);
 
     useEffect(() => {
         setIsClient(true);
@@ -81,6 +99,12 @@ export default function Sidebar({ children }: SidebarProps) {
         }
     }, [isDarkMode, isThai]);
 
+    useEffect(() => {
+        if (isMobile && !isOpen) {
+            setMobilePopupContent(null);
+        }
+    }, [isOpen, isMobile]);
+
     const toggleSidebar = () => setIsOpen((prev) => !prev);
 
     const toggleDarkMode = () => {
@@ -113,7 +137,7 @@ export default function Sidebar({ children }: SidebarProps) {
         { icon: <MessageCircle size={20} />, label: "Contract", labelThai: "ติดต่อ", id: "footer" },
     ];
 
-    const infoItems = [
+    const infoItems: InfoItem[] = [
         {
             icon: <FileText size={20} />,
             label: "Resume",
@@ -125,36 +149,6 @@ export default function Sidebar({ children }: SidebarProps) {
                 { label: "Download CV", labelThai: "ดาวน์โหลด CV", fileName: "CV-Pawarit.pdf" },
             ],
         },
-        // {
-        //     icon: <User size={20} />,
-        //     label: "Profile",
-        //     labelThai: "โปรไฟล์",
-        //     id: "profile-section",
-        //     hasDropdown: true,
-        //     content: (
-        //         <div className="p-4 min-w-[280px]">
-        //             <div className="flex items-center space-x-3 mb-4">
-        //                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-        //                     P
-        //                 </div>
-        //                 <div>
-        //                     <p className="font-semibold text-gray-800">Pawarit Jaroenphatthanasiri</p>
-        //                     <p className="text-sm text-gray-500">pawarit-j@rmutp.ac.th</p>
-        //                 </div>
-        //             </div>
-        //             <div className="space-y-2 text-sm">
-        //                 <div className="flex justify-between">
-        //                     <span className="text-gray-600">Phone:</span>
-        //                     <span className="text-gray-800">099-999-9999</span>
-        //                 </div>
-        //                 <div className="flex justify-between">
-        //                     <span className="text-gray-600">Role:</span>
-        //                     <span className="text-gray-800">Developer</span>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     ),
-        // },
         {
             icon: <BookOpen size={20} />,
             label: "Education",
@@ -163,38 +157,38 @@ export default function Sidebar({ children }: SidebarProps) {
             hasDropdown: true,
             contentClass: `${isOpen ? "-translate-y-80" : "-translate-y-50"}`,
             content: (
-                <div className="p-4 min-w-[400px]">
+                <div className={`${isMobile ? "p-2" : "p-4"} min-w-[400px]`}>
                     <h3 className={`text-lg font-semibold ${isDarkMode ? "text-white" : "text-gray-800"} mb-6`}>Education</h3>
 
-                    <div className="relative ml-3 space-y-6">
+                    <div className={`relative space-y-6`}>
 
-                        <div className="relative pl-6">
-                            <span className="absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
-                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                        <div className={`relative ${isMobile ? "pl-0" : "pl-6"}`}>
+                            <span className={`${isMobile ? "hidden" : "block"} absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full`}></span>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 p-3" : "w-full p-4"} rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2018 - 2022</p>
-                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} w-70`}>Sarasas Witaed Rangsit School</h4>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50" : "w-70"}`}>Sarasas Witaed Rangsit School</h4>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
                                     High School Degree
                                 </p>
                             </div>
                         </div>
 
-                        <div className="relative pl-6">
-                            <span className="absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
-                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                        <div className={`relative ${isMobile ? "pl-0" : "pl-6"}`}>
+                            <span className={`${isMobile ? "hidden" : "block"} absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full`}></span>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 p-3" : "w-full p-4"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2022 - 2025</p>
-                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} w-70`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50" : "w-70"}`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
                                     Bachelor&apos;s Degree
                                 </p>
                             </div>
                         </div>
 
-                        <div className="relative pl-6">
-                            <span className="absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
-                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                        <div className={`relative ${isMobile ? "pl-0" : "pl-6"}`}>
+                            <span className={`${isMobile ? "hidden" : "block"} absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full`}></span>
+                            <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 p-3" : "w-full p-4"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2018 - 2022</p>
-                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} w-70`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
+                                <h4 className={`text-md font-bold ${isDarkMode ? "text-white" : "text-gray-800"} ${isMobile ? "w-50" : "w-70"}`}>RMUTP Rajamangala University of Technology Phra Nakhon</h4>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-600"} mt-1`}>
                                     Bachelor&apos;s Degree
                                 </p>
@@ -205,6 +199,8 @@ export default function Sidebar({ children }: SidebarProps) {
             ),
         },
     ];
+
+    
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -372,7 +368,40 @@ export default function Sidebar({ children }: SidebarProps) {
                                                         initial={{ opacity: 0, x: -10 }}
                                                         animate={{ opacity: 1, x: 0 }}
                                                         transition={{ delay: 0.2 + index * 0.05 }}
-                                                        onClick={() => item.hasDropdown && toggleDropdown(item.id)}
+                                                        onClick={() => {
+                                                            if (!item.hasDropdown) return;
+                                                            
+                                                            if (isMobile && item.content) {
+                                                                setMobilePopupContent(item.content);
+                                                            } else if (isMobile && item.subMenu && item.subMenu.length > 0) {
+                                                                setMobilePopupContent(
+                                                                    <div className="p-4">
+                                                                        <h3 className={`text-lg font-semibold ${isDarkMode ? "text-white" : "text-gray-800"} mb-4`}>
+                                                                            {isThai ? item.labelThai : item.label}
+                                                                        </h3>
+                                                                        <div className="space-y-2">
+                                                                            {item.subMenu?.map((sub, subIndex) => (
+                                                                                <a
+                                                                                    key={subIndex}
+                                                                                    href={`/files/${sub.fileName}`}
+                                                                                    download={sub.fileName}
+                                                                                    onClick={() => {
+                                                                                        console.log(`Downloading ${sub.fileName}`);
+                                                                                        setMobilePopupContent(null);
+                                                                                    }}
+                                                                                    className={`w-full cursor-pointer flex items-center justify-between px-4 py-3 text-sm ${isDarkMode ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"} rounded-lg transition-colors`}
+                                                                                >
+                                                                                    <span>{isThai ? sub.labelThai : sub.label}</span>
+                                                                                    <Download size={16} />
+                                                                                </a>
+                                                                            ))}
+                                                                        </div>
+                                                                    </div>
+                                                                );
+                                                            } else {
+                                                                toggleDropdown(item.id);
+                                                            }
+                                                        }}
                                                         className={`w-full flex cursor-pointer items-center justify-between px-3 py-2.5 rounded-lg ${isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-100"} transition-colors ${(!isOpen && !isMobile) ? "justify-center" : ""}`}
                                                     >
                                                         <div className="flex items-center space-x-3">
@@ -477,6 +506,38 @@ export default function Sidebar({ children }: SidebarProps) {
                                     )}
                                 </div>
                             </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                <AnimatePresence>
+                    {isMobile && mobilePopupContent && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setMobilePopupContent(null)}
+                            className="fixed inset-0 bg-black/50 z-[60] flex items-center justify-center p-4"
+                        >
+                            <motion.div
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.9, opacity: 0 }}
+                                onClick={(e) => e.stopPropagation()}
+                                className={`${isDarkMode ? "bg-[#1a1a1a]" : "bg-white"} rounded-2xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto overflow-x-hidden`}
+                            >
+                                <div className="sticky top-0 z-10 flex justify-end p-4">
+                                    <button
+                                        onClick={() => setMobilePopupContent(null)}
+                                        className={`p-2 rounded-full ${isDarkMode ? "bg-gray-800 hover:bg-gray-700" : "bg-gray-200 hover:bg-gray-300"} transition-colors`}
+                                    >
+                                        <X size={20} className={isDarkMode ? "text-gray-300" : "text-gray-700"} />
+                                    </button>
+                                </div>
+                                <div className="px-2 pb-6">
+                                    {mobilePopupContent}
+                                </div>
+                            </motion.div>
                         </motion.div>
                     )}
                 </AnimatePresence>
