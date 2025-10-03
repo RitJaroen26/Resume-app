@@ -1,31 +1,19 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import ReactDOM from "react-dom";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useSidebar } from '@/context/SidebarContext';
 import { contractInfo, socialLinks, quickLinks, services } from './Data/footerData';
 
 import {
-    Mail,
-    Phone,
-    MapPin,
     Github,
-    // Linkedin,
-    Instagram,
-    Facebook,
-    // Send,
-    ArrowUp,
-    // Heart,
     Code,
-    // Coffee,
     ExternalLink
 } from 'lucide-react';
 
 const Footer = () => {
     const { isOpen, isDarkMode, isThai } = useSidebar();
     const [isVisible, setIsVisible] = useState(false);
-    const [showScrollTop, setShowScrollTop] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(

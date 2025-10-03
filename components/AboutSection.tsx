@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSidebar } from '@/context/SidebarContext';
 import { 
     tabs, 
-    // journey, 
     values, 
     skills 
 } from './Data/aboutData';
@@ -25,7 +24,6 @@ export default function AboutSection() {
     const [activeTab, setActiveTab] = useState('story');
     const [isVisible, setIsVisible] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(

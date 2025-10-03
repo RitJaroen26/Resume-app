@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BsGithub, BsInstagram } from 'react-icons/bs'
 import {
@@ -14,7 +14,6 @@ import {
     ChevronRight,
     Download,
     FileText,
-    User,
     BookOpen,
     Menu,
     X

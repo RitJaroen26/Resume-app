@@ -145,7 +145,7 @@ export default function PortfolioSection() {
     };
 
     const openMiniProjectDetails = (miniProject: MiniProject) => {
-        setSelectedProject(miniProject);
+        setSelectedMiniProject(miniProject);
 
         const scrollY = window.scrollY;
         document.body.style.position = "fixed";
@@ -163,7 +163,7 @@ export default function PortfolioSection() {
 
         window.scrollTo(0, parseInt(scrollY || "0") * -1);
 
-        setSelectedProject(null);
+        setSelectedMiniProject(null);
     };
 
     const getVisibleProjects = () => {
@@ -210,13 +210,6 @@ export default function PortfolioSection() {
 
     const selectedCategoryData = categories.find(cat => cat.value === selectedCategory) || categories[0];
     const selectedCategoryMiniData = categoriesMini.find(cat => cat.value === selectedCategoryMini) || categoriesMini[0];
-
-    const cardVariants = {
-        left: { x: -100, scale: 0.92, opacity: 0.6 },
-        center: { x: 0, scale: 1, opacity: 1 },
-        right: { x: 100, scale: 0.92, opacity: 0.6 },
-        exit: { opacity: 0, scale: 0.9, x: 0 },
-    };
 
     return (
         <div id="portfolio-section" className={`min-h-screen py-20 ${isDarkMode ? 'bg-[#121212]' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>

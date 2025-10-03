@@ -133,13 +133,6 @@ export default function ExperienceSection() {
         }
     };
 
-    const cardVariants = {
-        left: { x: -100, scale: 0.92, opacity: 0.6 },
-        center: { x: 0, scale: 1, opacity: 1 },
-        right: { x: 100, scale: 0.92, opacity: 0.6 },
-        exit: { opacity: 0, scale: 0.9, x: 0 },
-    };
-
     return (
         <div id="experience-section" className={`min-h-screen py-20 ${isDarkMode ? 'bg-[#121212]' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
             <div className="absolute inset-0">
