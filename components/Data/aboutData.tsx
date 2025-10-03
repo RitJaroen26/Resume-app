@@ -87,7 +87,7 @@ export const values = [
         icon: <Code2 size={24} />,
         title: 'Frontend',
         skill: [
-            { icon: <SiReact size={26} color="#61DAFB" />, title: "React" },
+            { icon: <SiReact size={26} color="#61DAFB" />, title: "React.js" },
             { icon: <SiHtml5 size={26} color="#E34F26" />, title: "HTML5" },
             { icon: <SiCss3 size={26} color="#1572B6" />, title: "CSS3" },
             { icon: <SiJavascript size={26} color="#F7DF1E" />, title: "JavaScript" },

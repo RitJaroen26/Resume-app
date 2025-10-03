@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
-    const { isOpen, isDarkMode, isThai } = useSidebar();
+    const { isOpen, isDarkMode } = useSidebar();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
