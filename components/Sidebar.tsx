@@ -183,7 +183,7 @@ export default function Sidebar({ children }: SidebarProps) {
                             </div>
                         </div>
 
-                        <div className={`relative ${isMobile ? "pl-0" : "pl-6"}`}>
+                        {/* <div className={`relative ${isMobile ? "pl-0" : "pl-6"}`}>
                             <span className={`${isMobile ? "hidden" : "block"} absolute left-[-10px] top-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full`}></span>
                             <div className={`${isDarkMode ? "bg-[#282828]" : "bg-gray-200"} ${isMobile ? "w-70 sm:w-auto p-3" : "w-full p-4"} p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
                                 <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-700"} font-semibold`}>2018 - 2022</p>
@@ -192,7 +192,7 @@ export default function Sidebar({ children }: SidebarProps) {
                                     Bachelor&apos;s Degree
                                 </p>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             ),
