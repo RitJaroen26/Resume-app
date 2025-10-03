@@ -36,7 +36,7 @@ import {
 
 
 export default function ExperienceSection() {
-    const { isOpen, isDarkMode, isThai } = useSidebar();
+    const { isDarkMode, isThai } = useSidebar();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -155,10 +155,15 @@ export default function ExperienceSection() {
                     className="text-center mb-16"
                 >
                     <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Experiences</span>
+                        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            {isThai ? "ประสบการณ์" : "Experiences"}
+                        </span>
                     </h2>
                     <p className={`text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto px-4`}>
-                        Professional journey, educational milestones, and achievements that shaped my career in software development.
+                        {isThai
+                            ? "สั่งสมประสบการณ์จากหลากหลายโครงการและบทบาท แสดงถึงความสามารถในการเรียนรู้ ปรับตัว และสร้างคุณค่าให้กับทุกงานที่ทำ"
+                            : "Gain experience across a variety of projects and roles, demonstrating the ability to learn, adapt and add value to every task undertaken."
+                        }
                     </p>
                 </motion.div>
 
@@ -243,7 +248,7 @@ export default function ExperienceSection() {
                                                 </div>
                                                 <div className="absolute top-4 right-4">
                                                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900/50 text-gray-300' : 'bg-white/90 text-gray-700'}`}>
-                                                        {experience.category}
+                                                        {isThai ? experience.categoryTh : experience.category}
                                                     </span>
                                                 </div>
                                             </div>
@@ -263,21 +268,28 @@ export default function ExperienceSection() {
                                                 <div className="flex items-center gap-4 text-sm mb-3">
                                                     <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                                                         <MapPin size={14} />
-                                                        {experience.location}
+                                                        {isThai ? experience.locationTh : experience.location}
                                                     </span>
                                                     <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                                                         <Clock size={14} />
-                                                        {experience.duration}
+                                                        {isThai ? experience.durationth : experience.duration}
                                                     </span>
                                                 </div>
 
                                                 <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm mb-4 line-clamp-3`}>
-                                                    {experience.description}
+                                                    {isThai ? experience.descriptionTh : experience.description}
                                                 </p>
 
                                                 <div className={`flex items-center gap-1 mb-4 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                                                     <Calendar size={14} />
-                                                    <span>{experience.startDate} - {experience.endDate}</span>
+                                                    {isThai
+                                                        ? (
+                                                            <span>{experience.startDateTh} - {experience.endDateTh}</span>
+                                                        )
+                                                        : (
+                                                            <span>{experience.startDate} - {experience.endDate}</span>
+                                                        )
+                                                    }
                                                 </div>
 
                                                 <div className="flex flex-wrap gap-2 mb-6">
@@ -302,7 +314,7 @@ export default function ExperienceSection() {
                                                         className="w-full cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2"
                                                     >
                                                         <Eye size={16} />
-                                                        View Details
+                                                        {isThai ? "รายละเอียด" : "View Details"}
                                                     </button>
                                                 </div>
                                             </div>
@@ -340,12 +352,9 @@ export default function ExperienceSection() {
                                 <Search size={18} strokeWidth={2} />
                             </div>
                             <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                                No projects found
+                                {isThai ? "ไม่พบประสบการณ์" : "No experience found"}
                             </h3>
                         </div>
-                        <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                            Try selecting a different category to see more projects.
-                        </p>
                     </motion.div>
                 )}
             </div>
@@ -380,15 +389,22 @@ export default function ExperienceSection() {
                                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm mt-2">
                                                 <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                                                     <MapPin size={14} />
-                                                    {selectedExperience.location}
+                                                    {isThai ? selectedExperience.locationTh : selectedExperience.location}
                                                 </span>
                                                 <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                                                     <Calendar size={14} />
-                                                    {selectedExperience.startDate} - {selectedExperience.endDate}
+                                                    {isThai
+                                                        ? (
+                                                            <span>{selectedExperience.startDateTh} - {selectedExperience.endDateTh}</span>
+                                                        )
+                                                        : (
+                                                            <span>{selectedExperience.startDate} - {selectedExperience.endDate}</span>
+                                                        )
+                                                    }
                                                 </span>
                                                 <span className={`flex items-center gap-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                                                     <Clock size={14} />
-                                                    {selectedExperience.duration}
+                                                    {isThai ? selectedExperience.durationth : selectedExperience.duration}
                                                 </span>
                                             </div>
                                         </div>
@@ -423,30 +439,39 @@ export default function ExperienceSection() {
 
                                 <div className="mb-6">
                                     <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        About This Role
+                                        {isThai ? "เกี่ยวกับบทบาทนี้" : "About This Role"}
                                     </h3>
                                     <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed w-auto`}>
-                                        {selectedExperience.longDescription}uto
+                                        {isThai ? selectedExperience.longDescriptionth : selectedExperience.longDescription}
                                     </p>
                                 </div>
 
                                 <div className="mb-6">
                                     <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        Key Responsibilities
+                                        {isThai ? "ความรับผิดชอบหลัก" : "Key Responsibilities"}
                                     </h3>
                                     <div className="grid md:grid-cols-1 gap-2">
-                                        {selectedExperience.responsibilities.map((responsibility, index) => (
-                                            <div key={index} className={`flex items-start gap-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                                                <ChevronRight size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                                                <span>{responsibility}</span>
-                                            </div>
-                                        ))}
+                                        {(isThai ? selectedExperience.responsibilitiesTh : selectedExperience.responsibilities)
+                                            .map((responsibility, index) => (
+                                                <div
+                                                    key={index}
+                                                    className={`flex items-start gap-3 ${isDarkMode ? "text-gray-300" : "text-gray-600"
+                                                        }`}
+                                                >
+                                                    <ChevronRight
+                                                        size={16}
+                                                        className={`mt-0.5 flex-shrink-0 ${isDarkMode ? "text-blue-400" : "text-blue-600"
+                                                            }`}
+                                                    />
+                                                    <span>{responsibility}</span>
+                                                </div>
+                                            ))}
                                     </div>
                                 </div>
 
                                 <div className="mb-6">
                                     <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        Technologies & Tools
+                                        {isThai ? "เทคโนโลยีและเครื่องมือ" : "Technologies & Tools"}
                                     </h3>
                                     <div className="flex flex-wrap gap-3">
                                         {selectedExperience.technologies.map((tech, index) => (
@@ -462,10 +487,10 @@ export default function ExperienceSection() {
 
                                 <div className="mb-6">
                                     <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
-                                        Key Achievements
+                                        {isThai ? "ความสำเร็จที่สำคัญ" : "Key Achievements"}
                                     </h3>
                                     <div className="space-y-2">
-                                        {selectedExperience.achievements.map((achievement, index) => (
+                                        {(isThai ? selectedExperience.achievementsTh : selectedExperience.achievements).map((achievement, index) => (
                                             <div key={index} className={`flex items-start gap-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                                                 <Star size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-yellow-400' : 'text-yellow-600'}`} />
                                                 <span>{achievement}</span>

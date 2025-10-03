@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 
 export default function PortfolioSection() {
-    const { isOpen, isDarkMode, isThai } = useSidebar();
+    const { isDarkMode, isThai } = useSidebar();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentIndexMini, setCurrentIndexMini] = useState(0);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -233,10 +233,24 @@ export default function PortfolioSection() {
                     className="text-center"
                 >
                     <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                        My <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
+                        {isThai ? (
+                            <>
+                                ผลงานของ
+                                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                    ผม
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                My{" "}
+                                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                    Projects
+                                </span>
+                            </>
+                        )}
                     </h2>
                     <p className={`text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto px-4`}>
-                        Explore my recent projects and technical achievements. Each project represents a unique challenge and learning experience.
+                        {isThai ? "รวบรวมผลงานจากหลากหลายโครงการที่สะท้อนทักษะ ความคิดสร้างสรรค์ และความสามารถในการปรับใช้ความรู้กับงานในหลายด้าน" : "A showcase of diverse projects that highlight creativity, skills, and the ability to adapt expertise across different fields."}
                     </p>
 
                     <div className='flex flex-col-reverse md:flex-row justify-between md:ml-10 items-center mt-20'>
