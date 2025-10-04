@@ -219,45 +219,6 @@ export default function AboutSection() {
                                     </motion.div>
                                 )}
 
-                                {/* {activeTab === 'journey' && (
-                                    <motion.div
-                                        key="journey"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -20 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-8`}>
-                                            My Development Journey
-                                        </h3>
-                                        <div className="space-y-6">
-                                            {journey.map((item, index) => (
-                                                <motion.div
-                                                    key={item.year}
-                                                    initial={{ opacity: 0, x: -30 }}
-                                                    animate={{ opacity: 1, x: 0 }}
-                                                    transition={{ delay: index * 0.1 }}
-                                                    className="flex gap-6"
-                                                >
-                                                    <div className="flex-shrink-0">
-                                                        <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center text-white font-bold shadow-lg`}>
-                                                            {item.year}
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex-1">
-                                                        <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
-                                                            {item.title}
-                                                        </h4>
-                                                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
-                                                            {item.description}
-                                                        </p>
-                                                    </div>
-                                                </motion.div>
-                                            ))}
-                                        </div>
-                                    </motion.div>
-                                )} */}
-
                                 {activeTab === 'values' && (
                                     <motion.div
                                         key="values"
