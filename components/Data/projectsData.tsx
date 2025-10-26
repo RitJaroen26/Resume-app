@@ -59,7 +59,6 @@ export type MiniProject = {
 }
 
 
-
 export const projects: Project[] = [
     {
         id: 1,
@@ -94,6 +93,37 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/RitJaroen26/Resume-app",
         icon: <Globe size={24} />
     },
+    // {
+    //     id: 2,
+    //     title: "University Admission Portfolio Design",
+    //     category: "Graphic Design",
+    //     categoryName: "Graphic Design",
+    //     categorieNameTh: "การออกแบบกราฟฟิค",
+    //     image: "/images/portfolio.png",
+    //     technologies: ["Canva"],
+    //     date: "2025",
+    //     description: "A commissioned portfolio book design created for a student preparing to apply to university. The design process included client consultation, layout planning, and custom visual styling to match the student’s personality and target major.",
+    //     descriptionTh: "ผลงานออกแบบเล่ม Portfolio ที่ได้รับว่าจ้างจากนักเรียนมัธยมปลายที่กำลังเตรียมสมัครเข้ามหาวิทยาลัย โดยเริ่มจากการพูดคุยเพื่อเข้าใจความต้องการของลูกค้า วางโครงเลย์เอาท์ และออกแบบสไตล์ให้ตรงกับบุคลิกและสาขาที่ผู้สมัครต้องการเข้าเรียน",
+    //     longDescription: "This project began with a client consultation to understand the student’s goals and preferences for their university portfolio. I provided layout concepts, color direction, and font choices, then refined the design based on feedback and discussions. The final result is a clean, professional, and personalized portfolio book that reflects the student’s identity and highlights their achievements — ready for both print and digital submission. The service also included guidance on file format, printing options, and presentation tips to ensure the portfolio stands out.",
+    //     longDescriptionTh: "โปรเจกต์นี้เริ่มต้นจากการพูดคุยกับลูกค้าเพื่อเข้าใจเป้าหมายและสไตล์ที่ต้องการสำหรับเล่ม Portfolio สมัครเข้ามหาวิทยาลัย จากนั้นได้จัดทำโครงร่างเบื้องต้น (layout) เสนอแนวทางสีและฟอนต์ ก่อนปรับแก้ตามคำแนะนำของลูกค้าให้ลงตัวที่สุด ผลลัพธ์คือเล่ม Portfolio ที่ดูสะอาด เป็นมืออาชีพ และสะท้อนตัวตนของผู้สมัครได้อย่างชัดเจน พร้อมใช้งานทั้งในรูปแบบไฟล์และแบบพิมพ์จริง นอกจากนี้ยังให้คำแนะนำเรื่องขนาดไฟล์ การส่งพิมพ์ และการนำเสนอ เพื่อให้เล่ม Portfolio ดูโดดเด่นที่สุดในวันยื่นสมัคร",
+    //     features: [
+    //         "Client consultation and design briefing before starting",
+    //         "Customized layout and visual style per student’s major",
+    //         "Multiple revisions based on feedback and preferences",
+    //         "Ready for both print and digital submission",
+    //         "Guidance on printing and presentation for university admission",
+    //     ],
+    //     featuresTh: [
+    //         "พูดคุยและทำความเข้าใจกับลูกค้าก่อนเริ่มงานออกแบบ",
+    //         "ออกแบบเลย์เอาท์และสไตล์เฉพาะให้เหมาะกับสาขาที่สมัคร",
+    //         "ปรับแก้หลายรอบตามความคิดเห็นของลูกค้า",
+    //         "พร้อมใช้งานทั้งในรูปแบบไฟล์และพิมพ์จริง",
+    //         "ให้คำแนะนำด้านการพิมพ์และการนำเสนอสำหรับวันยื่นสมัคร",
+    //     ],
+    //     demoUrl: "https://leafmeat-food.onrender.com/",
+    //     githubUrl: "https://github.com/RitJaroen26/Resume-app",
+    //     icon: <Globe size={24} />
+    // },
 ];
 
 export const miniProjects: MiniProject[] = [

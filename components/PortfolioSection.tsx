@@ -622,7 +622,7 @@ export default function PortfolioSection() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 flex-shrink-0">
-                                <button
+                                {/* <button
                                     className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 text-sm md:text-base"
                                     onClick={() => window.open(selectedProject.demoUrl, '_blank')}
                                 >
@@ -635,7 +635,44 @@ export default function PortfolioSection() {
                                 >
                                     <Github size={16} />
                                     View Code
-                                </button>
+                                </button> */}
+                                {selectedProject.category === "Web & Mobile" ? (
+                                    <>
+                                        <button
+                                            className="flex-1 cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 text-sm md:text-base"
+                                            onClick={() => window.open(selectedProject.demoUrl, '_blank')}
+                                        >
+                                            <ExternalLink size={16} />
+                                            {isThai ? "ดูตัวอย่างงาน" : "View Live Demo"}
+                                        </button>
+                                        <button
+                                            className={`flex-1 cursor-pointer border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:bg-gray-700' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base`}
+                                            onClick={() => window.open(selectedProject.githubUrl, '_blank')}
+                                        >
+                                            <Github size={16} />
+                                            {isThai ? "ดูโค้ด" : "View Code"}
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <button
+                                            className="flex-1 bg-gradient-to-r from-pink-500 to-rose-600 text-white py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 text-sm md:text-base"
+                                            onClick={() => window.open(selectedProject.demoUrl, '_blank')}
+                                        >
+                                            <Eye size={16} />
+                                            {isThai ? "ดูผลงาน" : "View Design"}
+                                        </button>
+                                        {selectedProject.githubUrl && (
+                                            <button
+                                                className={`flex-1 border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:bg-gray-700' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base`}
+                                                onClick={() => window.open(selectedProject.githubUrl, '_blank')}
+                                            >
+                                                <ExternalLink size={16} />
+                                                {isThai ? "เปิดลิงก์" : "Open Link"}
+                                            </button>
+                                        )}
+                                    </>
+                                )}
                             </div>
                         </motion.div>
                     </motion.div>
@@ -1025,7 +1062,7 @@ export default function PortfolioSection() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 flex-shrink-0">
-                                <button
+                                {/* <button
                                     className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 text-sm md:text-base"
                                     onClick={() => window.open(selectedMiniProject.demoUrl, '_blank')}
                                 >
@@ -1038,7 +1075,44 @@ export default function PortfolioSection() {
                                 >
                                     <Github size={16} />
                                     View Code
-                                </button>
+                                </button> */}
+                                {selectedMiniProject.category === "Web & Mobile" ? (
+                                    <>
+                                        <button
+                                            className="flex-1 cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 text-sm md:text-base"
+                                            onClick={() => window.open(selectedMiniProject.demoUrl, '_blank')}
+                                        >
+                                            <ExternalLink size={16} />
+                                            {isThai ? "ดูตัวอย่างงาน" : "View Live Demo"}
+                                        </button>
+                                        <button
+                                            className={`flex-1 border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:bg-gray-700' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base`}
+                                            onClick={() => window.open(selectedMiniProject.githubUrl, '_blank')}
+                                        >
+                                            <Github size={16} />
+                                            {isThai ? "ดูโค้ด" : "View Code"}
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <button
+                                            className="flex-1 cursor-pointer bg-gradient-to-r from-pink-500 to-rose-600 text-white py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 text-sm md:text-base"
+                                            onClick={() => window.open(selectedMiniProject.demoUrl, '_blank')}
+                                        >
+                                            <Eye size={16} />
+                                            {isThai ? "ดูผลงาน" : "View Design"}
+                                        </button>
+                                        {selectedMiniProject.githubUrl && (
+                                            <button
+                                                className={`flex-1 border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:bg-gray-700' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base`}
+                                                onClick={() => window.open(selectedMiniProject.githubUrl, '_blank')}
+                                            >
+                                                <ExternalLink size={16} />
+                                                {isThai ? "เปิดลิงก์" : "Open Link"}
+                                            </button>
+                                        )}
+                                    </>
+                                )}
                             </div>
                         </motion.div>
                     </motion.div>
