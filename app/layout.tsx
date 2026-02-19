@@ -25,6 +25,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isMaintenance = true; // เปิด-ปิด ตรงนี้
+
+  if (isMaintenance) {
+    return (
+      <html>
+        <body>
+          <div style={{ padding: '50px', textAlign: 'center' }}>
+            <h1>ขออภัย เว็บไซต์ปิดปรับปรุงชั่วคราว</h1>
+            <p>กำลังอัปเดตระบบความปลอดภัย จะกลับมาเร็วๆ นี้ครับ</p>
+          </div>
+        </body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en">
       <head>
