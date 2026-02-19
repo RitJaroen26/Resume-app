@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 
 import Sidebar from "@/components/Sidebar";
+import { MaintenancePage } from "@/components/Maintenance";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,10 +32,7 @@ export default function RootLayout({
     return (
       <html>
         <body>
-          <div style={{ padding: '50px', textAlign: 'center' }}>
-            <h1>ขออภัย เว็บไซต์ปิดปรับปรุงชั่วคราว</h1>
-            <p>กำลังอัปเดตระบบความปลอดภัย จะกลับมาเร็วๆ นี้ครับ</p>
-          </div>
+          <MaintenancePage />
         </body>
       </html>
     );
