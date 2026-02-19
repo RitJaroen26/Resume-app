@@ -93,37 +93,66 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/RitJaroen26/Resume-app",
         icon: <Globe size={24} />
     },
-    // {
-    //     id: 2,
-    //     title: "University Admission Portfolio Design",
-    //     category: "Graphic Design",
-    //     categoryName: "Graphic Design",
-    //     categorieNameTh: "การออกแบบกราฟฟิค",
-    //     image: "/images/portfolio.png",
-    //     technologies: ["Canva"],
-    //     date: "2025",
-    //     description: "A commissioned portfolio book design created for a student preparing to apply to university. The design process included client consultation, layout planning, and custom visual styling to match the student’s personality and target major.",
-    //     descriptionTh: "ผลงานออกแบบเล่ม Portfolio ที่ได้รับว่าจ้างจากนักเรียนมัธยมปลายที่กำลังเตรียมสมัครเข้ามหาวิทยาลัย โดยเริ่มจากการพูดคุยเพื่อเข้าใจความต้องการของลูกค้า วางโครงเลย์เอาท์ และออกแบบสไตล์ให้ตรงกับบุคลิกและสาขาที่ผู้สมัครต้องการเข้าเรียน",
-    //     longDescription: "This project began with a client consultation to understand the student’s goals and preferences for their university portfolio. I provided layout concepts, color direction, and font choices, then refined the design based on feedback and discussions. The final result is a clean, professional, and personalized portfolio book that reflects the student’s identity and highlights their achievements — ready for both print and digital submission. The service also included guidance on file format, printing options, and presentation tips to ensure the portfolio stands out.",
-    //     longDescriptionTh: "โปรเจกต์นี้เริ่มต้นจากการพูดคุยกับลูกค้าเพื่อเข้าใจเป้าหมายและสไตล์ที่ต้องการสำหรับเล่ม Portfolio สมัครเข้ามหาวิทยาลัย จากนั้นได้จัดทำโครงร่างเบื้องต้น (layout) เสนอแนวทางสีและฟอนต์ ก่อนปรับแก้ตามคำแนะนำของลูกค้าให้ลงตัวที่สุด ผลลัพธ์คือเล่ม Portfolio ที่ดูสะอาด เป็นมืออาชีพ และสะท้อนตัวตนของผู้สมัครได้อย่างชัดเจน พร้อมใช้งานทั้งในรูปแบบไฟล์และแบบพิมพ์จริง นอกจากนี้ยังให้คำแนะนำเรื่องขนาดไฟล์ การส่งพิมพ์ และการนำเสนอ เพื่อให้เล่ม Portfolio ดูโดดเด่นที่สุดในวันยื่นสมัคร",
-    //     features: [
-    //         "Client consultation and design briefing before starting",
-    //         "Customized layout and visual style per student’s major",
-    //         "Multiple revisions based on feedback and preferences",
-    //         "Ready for both print and digital submission",
-    //         "Guidance on printing and presentation for university admission",
-    //     ],
-    //     featuresTh: [
-    //         "พูดคุยและทำความเข้าใจกับลูกค้าก่อนเริ่มงานออกแบบ",
-    //         "ออกแบบเลย์เอาท์และสไตล์เฉพาะให้เหมาะกับสาขาที่สมัคร",
-    //         "ปรับแก้หลายรอบตามความคิดเห็นของลูกค้า",
-    //         "พร้อมใช้งานทั้งในรูปแบบไฟล์และพิมพ์จริง",
-    //         "ให้คำแนะนำด้านการพิมพ์และการนำเสนอสำหรับวันยื่นสมัคร",
-    //     ],
-    //     demoUrl: "https://leafmeat-food.onrender.com/",
-    //     githubUrl: "https://github.com/RitJaroen26/Resume-app",
-    //     icon: <Globe size={24} />
-    // },
+    {
+        id: 2,
+        title: "Wat Thang Luang Website Official",
+        category: "Web & Mobile",
+        categoryName: "Web Application",
+        categorieNameTh: "เว็บแอปพลิเคชัน",
+        image: "/images/Project_Wat.png",
+        technologies: ["TypeScript, Next.js, Tailwind CSS"],
+        date: "2026",
+        description: "The official mobile-first website for Wat Thang Luang Buddhist Sunday School, dynamic PR content, and a seamless online donation gateway.",
+        descriptionTh: "เว็บไซต์อย่างเป็นทางการของศูนย์ศึกษาพระพุทธศาสนาวันอาทิตย์ วัดทางหลวง ออกแบบด้วยแนวคิด Mobile-First เพื่อการประชาสัมพันธ์ข่าวสาร และมีระบบรับแจ้งการบริจาคออนไลน์ที่ใช้งานง่าย",
+        longDescription: "A modern, public-facing portal designed to bridge the gap between the institution and the community. Built with a focus on UI/UX and accessibility, the website revitalizes the organization's digital presence, making it effortless for users to access news, schedules, and interact with the center on any device.",
+        longDescriptionTh: "เว็บไซต์สาธารณะที่ทำหน้าที่เป็นประตูเชื่อมระหว่างศูนย์ศึกษาฯ และบุคคลทั่วไป ถูกออกแบบใหม่ทั้งหมดให้มีความทันสมัย สวยงาม และเข้าถึงข้อมูลได้ง่ายบนทุกอุปกรณ์ (Responsive Design) เพื่อยกระดับภาพลักษณ์ขององค์กร",
+        features: [
+            "An intuitive e-slip submission system for digital donations, complete with strict frontend validation to ensure data integrity and proper file handling.",
+            "An intelligent virtual assistant configured to handle public inquiries and FAQs 24/7, improving user engagement.",
+            "A responsive news and activity feed dynamically populated from the back-office database.",
+            "Show infomation of Watthangluang",
+        ],
+        featuresTh: [
+            "ระบบรับแจ้งโอนเงินบริจาคออนไลน์ พร้อมฟังก์ชันอัปโหลดหลักฐาน (E-Slip) ที่มีการตรวจสอบขนาดและประเภทไฟล์ (Frontend Validation) เพื่อป้องกันข้อผิดพลาด",
+            "บูรณาการระบบแชทบอทอัจฉริยะสำหรับตอบคำถามที่พบบ่อย (FAQ) แก่ผู้ปกครองและนักเรียนได้ตลอด 24 ชั่วโมง",
+            "แสดงผลข่าวสาร กิจกรรม และปฏิทินกำหนดการต่างๆ ที่เชื่อมโยงข้อมูลตรงจากฐานข้อมูลหลังบ้าน",
+            "แสดงข้อมูลของสถานที่",
+        ],
+        demoUrl: "https://wat.chesster.net/wat/",
+        githubUrl: "https://github.com/RitJaroen26/Wat-Thang-Luang-Frontend",
+        icon: <Globe size={24} />
+    },
+    {
+        id: 3,
+        title: "Academic Registration & Admin Dashboard of Wat Thang Luang",
+        category: "Web & Mobile",
+        categoryName: "Web Application",
+        categorieNameTh: "เว็บแอปพลิเคชัน",
+        image: "/images/Project_Wat2.png",
+        technologies: ["TypeScript, Next.js, Tailwind CSS, PHP, Laravel, MySQL, RESTful API"],
+        date: "2026",
+        description: "A comprehensive full-stack web application driving the digital transformation of academic registrations, featuring a data-driven Admin Dashboard and AI-powered workflow automation.",
+        descriptionTh: "ระบบเว็บแอปพลิเคชันแบบ Full-Stack สำหรับจัดการงานทะเบียนนักเรียน พร้อมแดชบอร์ดอัจฉริยะสำหรับผู้ดูแลระบบ ที่นำเทคโนโลยี AI มาช่วยวิเคราะห์ข้อมูลและจัดลำดับความสำคัญของงาน",
+        longDescription: "A robust internal platform built to replace legacy paper-based workflows with a fully digitized system. It encompasses a self-service academic portal for students and a powerful, data-driven back-office application designed to optimize administrative efficiency and operational management.",
+        longDescriptionTh: "แพลตฟอร์มที่เข้ามาทำ Digital Transformation เปลี่ยนกระบวนการทำงานของศูนย์ฯ จากระบบเอกสารกระดาษ สู่ระบบดิจิทัลแบบ 100% ประกอบด้วยพอร์ทัลสำหรับนักเรียนในการลงทะเบียนเรียนด้วยตนเอง และระบบหลังบ้าน (Back-office) ที่ทรงประสิทธิภาพสำหรับบุคลากร",
+        features: [
+            "A real-time analytics command center utilizing complex data visualization (Recharts) to track enrollment trends and financial metrics. Includes a personalized 'Quick Actions' panel tailored to individual administrators.",
+            "A highly secure permission management system ensuring granular access levels across Students, Staff, and Super Administrators.",
+            "Centralized verification pipelines for processing student enrollments and auditing financial donation slips.",
+            "Register to study for students.",
+            "Manage the various teaching and learning activities at the center."
+        ],
+        featuresTh: [
+            "ระบบจัดการโปรไฟล์นักเรียน การสมัครเรียนในรายวิชา/กิจกรรมต่างๆ และการตรวจสอบสถานะการอนุมัติแบบออนไลน์",
+            "ระบบรักษาความปลอดภัยและจำกัดสิทธิ์ผู้ใช้งานที่รัดกุม แบ่งแยกระดับการเข้าถึงข้อมูลระหว่าง นักเรียน, บุคลากรทั่วไป, และผู้ดูแลระบบระดับสูง",
+            "ระบบตรวจสอบและอนุมัติการลงทะเบียนและสลิปเงินบริจาค ที่ทำงานได้อย่างรวดเร็วและแม่นยำ",
+            "ลงทะเบียนการศึกษาสำหรับนักเรียน",
+            "จัดการการเรียนการสอนต่างๆของทางศูนย์"
+        ],
+        demoUrl: "https://registration-wat-thang-luang.vercel.app/registrar/home",
+        githubUrl: "https://github.com/RitJaroen26/Wat-Thang-Luang-Reg",
+        icon: <Globe size={24} />
+    },
 ];
 
 export const miniProjects: MiniProject[] = [
