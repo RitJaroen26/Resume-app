@@ -26,7 +26,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isMaintenance = true; // เปิด-ปิด ตรงนี้
+  const isMaintenance = false; // เปิด-ปิด ตรงนี้
 
   if (isMaintenance) {
     return (
