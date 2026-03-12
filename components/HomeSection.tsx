@@ -61,7 +61,7 @@ function AvatarModel() {
     return (
         <group ref={group} dispose={null}>
             {/* <primitive object={scene} scale={2.5} position={[0, -2.5, 0]} /> */}
-            <primitive object={scene} scale={3.2} position={[0, -3.2, 0]} />
+            <primitive object={scene} scale={2.9} position={[0, -3.8, 0]} />
         </group>
     );
 }
@@ -256,12 +256,12 @@ export default function HomeSection() {
                         className="space-y-8"
                     >
                         {/* --- 3. เปลี่ยนจาก Image เป็น 3D Canvas ตรงนี้ --- */}
-                        <div className="hidden xl:flex relative mx-auto w-80 h-80 lg:w-96 lg:h-120">
+                        <div className="md:flex relative mx-auto w-[300px] h-[400px] md:w-[400px] md:h-[500px] lg:w-[450px] lg:h-[600px]">
                             {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse" /> */}
                             {/* <div className={`relative w-full h-full ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-full flex items-center justify-center overflow-hidden`}>
                                 
                             </div> */}
-                            <div className="w-full h-full rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing">
+                            <div className="w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing">
                                 <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
                                     <ambientLight intensity={0.7} />
                                     <directionalLight position={[10, 10, 10]} intensity={1.5} />
@@ -269,8 +269,9 @@ export default function HomeSection() {
                                     <AvatarModel />
                                     
                                     <OrbitControls 
-                                        enableZoom={false} 
-                                        minPolarAngle={Math.PI / 2.5} 
+                                        enableZoom={false}
+                                        enablePan={false} 
+                                        minPolarAngle={Math.PI / 2} 
                                         maxPolarAngle={Math.PI / 2} 
                                     />
                                     <Environment preset="city" />
