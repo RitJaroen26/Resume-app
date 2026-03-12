@@ -19,6 +19,25 @@ import {
 
 import { useSidebar } from '@/context/SidebarContext';
 
+import { Canvas, useFrame } from '@react-three/fiber';
+import { useGLTF, OrbitControls, Environment } from '@react-three/drei';
+import * as THREE from 'three';
+
+function AvatarModel() {
+    const { scene } = useGLTF('/models/model.glb'); 
+    const modelRef = useRef<THREE.Group>(null);
+
+    useFrame((state) => {
+        const t = state.clock.getElapsedTime();
+        if (modelRef.current) {
+            modelRef.current.position.y = -1.5 + Math.sin(t) * 0.05; 
+            modelRef.current.rotation.y = Math.sin(t / 2) * 0.1;
+        }
+    });
+
+    return <primitive object={scene} ref={modelRef} scale={2} position={[0, -1.5, 0]} />;
+}
+
 export default function HomeSection() {
     const { isOpen, isDarkMode, isThai } = useSidebar();
     const [currentRole, setCurrentRole] = useState(0);
@@ -36,7 +55,8 @@ export default function HomeSection() {
 
     const roles = [
         "Full Stack Developer",
-        "Freelance",
+        "Computer Science Student"
+        // "Freelance",
     ];
 
     const totalSkills = values.reduce((acc, category) => acc + category.skill.length, 0);
@@ -185,7 +205,7 @@ export default function HomeSection() {
                         </motion.div>
                     </motion.div>
 
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 50 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -196,6 +216,35 @@ export default function HomeSection() {
                             <div className={`relative w-full h-full ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-full flex items-center justify-center overflow-hidden`}>
                                 <div className="w-110 h-110 rounded-full flex items-center justify-center">
                                     <Image src="/images/profile_image_01.png" width={600} height={600} alt="" placeholder="empty" className="object-cover w-full h-full rounded-full" />
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div> */}
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 50 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        className="space-y-8"
+                    >
+                        {/* --- 3. เปลี่ยนจาก Image เป็น 3D Canvas ตรงนี้ --- */}
+                        <div className="hidden xl:flex relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse" />
+                            <div className={`relative w-full h-full ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-full flex items-center justify-center overflow-hidden`}>
+                                <div className="w-full h-full rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing">
+                                    <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+                                        <ambientLight intensity={0.7} />
+                                        <directionalLight position={[10, 10, 10]} intensity={1.5} />
+                                        
+                                        <AvatarModel />
+                                        
+                                        <OrbitControls 
+                                            enableZoom={false} 
+                                            minPolarAngle={Math.PI / 2.5} 
+                                            maxPolarAngle={Math.PI / 2} 
+                                        />
+                                        <Environment preset="city" />
+                                    </Canvas>
                                 </div>
                             </div>
                         </div>
