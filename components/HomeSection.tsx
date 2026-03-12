@@ -229,7 +229,7 @@ export default function HomeSection() {
                     >
                         {/* --- 3. เปลี่ยนจาก Image เป็น 3D Canvas ตรงนี้ --- */}
                         <div className="hidden xl:flex relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse" />
+                            {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse" /> */}
                             <div className={`relative w-full h-full ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-full flex items-center justify-center overflow-hidden`}>
                                 <div className="w-full h-full rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing">
                                     <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
