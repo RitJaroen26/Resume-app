@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from './Data/projectsData';
 import { values } from './Data/aboutData';
