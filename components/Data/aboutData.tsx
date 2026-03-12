@@ -17,6 +17,7 @@ import {
     SiSourcetree,
     SiDocker,
     SiTailwindcss,
+    SiLaravel,
 } from 'react-icons/si';
 
 import {
@@ -101,6 +102,7 @@ export const values = [
         title: 'Backend',
         skill: [
             { icon: <SiNodedotjs size={26} color="#339933" />, title: "Node.js" },
+            { icon: <SiLaravel size={26} color="#FF2D20" />, title: "Laravel" },
             { icon: <SiPhp size={26} color="#777BB4" />, title: "PHP" },
             { icon: <SiMysql size={26} color="#4479A1" />, title: "MySQL" },
             { icon: <SiMongodb size={26} color="#47A248" />, title: "MongoDB" },
