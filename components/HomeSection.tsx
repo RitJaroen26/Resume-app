@@ -60,7 +60,8 @@ function AvatarModel() {
 
     return (
         <group ref={group} dispose={null}>
-            <primitive object={scene} scale={2.5} position={[0, -2.5, 0]} />
+            {/* <primitive object={scene} scale={2.5} position={[0, -2.5, 0]} /> */}
+            <primitive object={scene} scale={3.2} position={[0, -3.2, 0]} />
         </group>
     );
 }
