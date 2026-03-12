@@ -40,7 +40,7 @@ import * as THREE from 'three';
 
 function AvatarModel() {
     const group = useRef<THREE.Group>(null);
-    const { scene, animations } = useGLTF('/models/my-animated-avatar.glb'); 
+    const { scene, animations } = useGLTF('/models/model.glb'); 
     const { actions, names } = useAnimations(animations, group);
 
     useEffect(() => {
