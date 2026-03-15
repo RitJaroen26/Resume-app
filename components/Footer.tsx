@@ -168,7 +168,7 @@ const Footer = () => {
                                     </ul>
                                 </motion.div>
 
-                                <motion.div
+                                {/* <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
                                     transition={{ duration: 0.6, delay: 0.8 }}
@@ -183,7 +183,7 @@ const Footer = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                </motion.div>
+                                </motion.div> */}
 
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
@@ -194,22 +194,25 @@ const Footer = () => {
                                     <h4 className={`text-lg font-semibold ${isDarkMode ? "text-white" : "text-gray-700"}`}>Resources</h4>
                                     <ul className="space-y-2">
                                         <li>
-                                            <button
-                                                onClick={() => console.log('Download Resume')}
+                                            
+                                            <a
+                                                href={`/files/Resume-Pawarit.pdf`}
+                                                download="Resume-Pawarit.pdf"
                                                 className={`${isDarkMode ? "text-gray-400" : "text-gray-500"} hover:text-white transition-colors flex items-center gap-2`}
                                             >
-                                                <ExternalLink size={12} />
+                                                <ExternalLink size={20} />
                                                 Download Resume
-                                            </button>
+                                            </a>
                                         </li>
                                         <li>
-                                            <button
-                                                onClick={() => console.log('Download CV')}
+                                            <a
+                                                href={`/files/CV-Pawarit.pdf`}
+                                                download="CV-Pawarit.pdf"
                                                 className={`${isDarkMode ? "text-gray-400" : "text-gray-500"} hover:text-white transition-colors flex items-center gap-2`}
                                             >
-                                                <ExternalLink size={12} />
+                                                <ExternalLink size={20} />
                                                 Download CV
-                                            </button>
+                                            </a>
                                         </li>
                                         <li>
                                             <a
@@ -253,7 +256,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-            
+
         </>
     );
 };

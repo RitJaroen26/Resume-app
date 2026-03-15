@@ -17,7 +17,7 @@ export const contractInfo = [
     {
         icon: <Phone size={20} />,
         label: 'Phone',
-        value: '+66 99-999-9999',
+        value: '063-2536970',
         link: 'tel:+66999999999'
     },
     {
@@ -41,16 +41,16 @@ export const socialLinks = [
     //     url: '#',
     //     color: 'hover:text-blue-600'
     // },
-    {
-        name: 'Instagram',
-        icon: <Instagram size={24} />,
-        url: '#',
-        color: 'hover:text-pink-600'
-    },
+    // {
+    //     name: 'Instagram',
+    //     icon: <Instagram size={24} />,
+    //     url: '#',
+    //     color: 'hover:text-pink-600'
+    // },
     {
         name: 'Facebook',
         icon: <Facebook size={24} />,
-        url: '#',
+        url: 'https://web.facebook.com/ponpawarit/',
         color: 'hover:text-blue-700'
     }
 ];

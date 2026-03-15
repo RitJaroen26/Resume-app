@@ -23,21 +23,6 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Environment, useAnimations } from '@react-three/drei';
 import * as THREE from 'three';
 
-// function AvatarModel() {
-//     const { scene } = useGLTF('/models/model.glb'); 
-//     const modelRef = useRef<THREE.Group>(null);
-
-//     useFrame((state) => {
-//         const t = state.clock.getElapsedTime();
-//         if (modelRef.current) {
-//             modelRef.current.position.y = -1.5 + Math.sin(t) * 0.05; 
-//             modelRef.current.rotation.y = Math.sin(t / 2) * 0.1;
-//         }
-//     });
-
-//     return <primitive object={scene} ref={modelRef} scale={2} position={[0, -1.5, 0]} />;
-// }
-
 function AvatarModel() {
     const group = useRef<THREE.Group>(null);
     const { scene, animations } = useGLTF('/models/model.glb'); 
@@ -113,12 +98,6 @@ export default function HomeSection() {
 
     return (
         <div id="home-section" className={`px-2 sm:px-8 md:px-16 lg:px-32 min-h-screen flex w-full overflow-hidden ${isDarkMode ? 'bg-[#121212]' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50'}`}>
-            {/* <div className="absolute inset-0 overflow-hidden">
-                <div className={`absolute top-20 left-20 w-72 h-72 ${isDarkMode ? 'bg-blue-500/5' : 'bg-blue-500/10'} rounded-full blur-3xl animate-pulse`} />
-                <div className={`absolute bottom-20 right-20 w-96 h-96 ${isDarkMode ? 'bg-purple-500/5' : 'bg-purple-500/10'} rounded-full blur-3xl animate-pulse delay-1000`} />
-                <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] ${isDarkMode ? 'bg-gradient-to-r from-cyan-500/3 to-blue-500/3' : 'bg-gradient-to-r from-cyan-500/5 to-blue-500/5'} rounded-full blur-3xl animate-pulse delay-2000`} />
-            </div> */}
-
             <div className={`relative z-10 container mx-auto ${isOpen ? "px-2" : "px-10"} py-20`}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
                     <motion.div
