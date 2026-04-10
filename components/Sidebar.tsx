@@ -576,9 +576,9 @@ export default function Sidebar({ children }: SidebarProps) {
                                 <BsGithub size={20} onClick={() => window.open("https://github.com/RitJaroen26")} />
                             </div>
 
-                            <div className={`cursor-pointer opacity-70 transition-all duration-300 hover:text-red-500 hover:opacity-100 ${isDarkMode ? "text-[#B3B3B3]" : "text-gray-700"}`}>
+                            {/* <div className={`cursor-pointer opacity-70 transition-all duration-300 hover:text-red-500 hover:opacity-100 ${isDarkMode ? "text-[#B3B3B3]" : "text-gray-700"}`}>
                                 <BsInstagram size={20} />
-                            </div>
+                            </div> */}
                         </div>
                     </motion.div>
 
