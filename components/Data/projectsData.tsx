@@ -129,7 +129,7 @@ export const projects: Project[] = [
         categoryName: "Web Application",
         categorieNameTh: "เว็บแอปพลิเคชัน",
         image: "/images/Project_Wat2.png",
-        technologies: ["TypeScript", "Next.js", "Tailwind CSS", "PHP, Laravel", "MySQL", "RESTful API"],
+        technologies: ["TypeScript", "Next.js", "Tailwind CSS", "PHP", "Laravel", "MySQL", "RESTful APIs"],
         date: "2026",
         description: "A comprehensive full-stack web application driving the digital transformation of academic registrations, featuring a data-driven Admin Dashboard and AI-powered workflow automation.",
         descriptionTh: "ระบบเว็บแอปพลิเคชันแบบ Full-Stack สำหรับจัดการงานทะเบียนนักเรียน พร้อมแดชบอร์ดอัจฉริยะสำหรับผู้ดูแลระบบ ที่นำเทคโนโลยี AI มาช่วยวิเคราะห์ข้อมูลและจัดลำดับความสำคัญของงาน",

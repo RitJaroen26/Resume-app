@@ -68,7 +68,9 @@ export default function HomeSection() {
 
     const roles = [
         "Full Stack Developer",
-        "Computer Science Student"
+        "Programmer",
+        "Frontend Developer",
+        "Backend Developer"
         // "Freelance",
     ];
 
@@ -260,7 +262,7 @@ export default function HomeSection() {
                     </motion.div>
                 </div>
 
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.6 }}
@@ -282,7 +284,7 @@ export default function HomeSection() {
                             </p>
                         </motion.div>
                     ))}
-                </motion.div>
+                </motion.div> */}
 
                 <motion.div
                     initial={{ opacity: 0 }}

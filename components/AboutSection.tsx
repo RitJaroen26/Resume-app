@@ -152,7 +152,7 @@ export default function AboutSection() {
                             ))}
                         </div>
 
-                        <div className={`w-90 md:w-full ${!isDarkMode ? 'bg-white' : ''} backdrop-blur-sm rounded-2xl p-8 shadow-xl ${isDarkMode ? 'border-gray-700' : 'border-gray-100'} min-h-[500px]`}>
+                        <div className={`w-90 md:w-full ${!isDarkMode ? 'bg-white' : ''} backdrop-blur-sm rounded-2xl p-8 shadow-sm ${isDarkMode ? 'border-gray-700' : 'border-gray-100'} min-h-[500px]`}>
                             <AnimatePresence mode="wait">
                                 {activeTab === 'story' && (
                                     <motion.div
@@ -204,7 +204,7 @@ export default function AboutSection() {
                                                     whileInView="visible"
                                                     animate={{ x: 0, opacity: 1 }}
                                                     transition={{ duration: 1 }}
-                                                    className={`${isDarkMode ? "bg-[#404040]" : "bg-gray-200"} p-10 rounded-2xl shadow-xl max-w-full md:w-[500px] md:h-[290px]`}>
+                                                    className={`${isDarkMode ? "bg-[#404040]" : "bg-gray-200"} p-10 rounded-2xl shadow-sm max-w-full md:w-[500px] md:h-[290px]`}>
                                                     <h2 className={`text-xl font-semibold mb-2 ${isDarkMode ? "text-white" : "text-gray-500"}`}>
                                                         {isThai ? "เป้าหมายในสายอาชีพ" : "Career Objectives"}
                                                     </h2>
