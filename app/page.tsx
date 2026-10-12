@@ -2,6 +2,7 @@ import HomeSection from "@/components/HomeSection";
 import About from "@/components/AboutSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import AwardsSection from "@/components/AwardsSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <About />
       <PortfolioSection />
       <ExperienceSection />
+      <AwardsSection />
       <Footer />
     </>
   );

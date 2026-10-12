@@ -8,6 +8,7 @@ import {
     Users,
     Cpu,
     Briefcase,
+    Trophy,
     MessageCircle,
     Sun,
     Moon,
@@ -133,6 +134,7 @@ export default function Sidebar({ children }: SidebarProps) {
         { icon: <Users size={20} />, label: "About Me", labelThai: "เกี่ยวกับฉัน", id: "about-section" },
         { icon: <Cpu size={20} />, label: "Portfolio", labelThai: "ผลงาน", id: "portfolio-section" },
         { icon: <Briefcase size={20} />, label: "Experience", labelThai: "ประสบการณ์", id: "experience-section" },
+        { icon: <Trophy size={20} />, label: "Awards", labelThai: "รางวัล", id: "awards-section" },
         { icon: <MessageCircle size={20} />, label: "Contract", labelThai: "ติดต่อ", id: "footer" },
     ];
 
